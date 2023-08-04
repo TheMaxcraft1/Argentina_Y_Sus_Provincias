@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxcxmht2lqd0k"]
+
+[ext_resource type="PackedScene" uid="uid://bgupw30j32r5n" path="res://provincia.tscn" id="1_fyo6u"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Provincia" parent="." instance=ExtResource("1_fyo6u")]
