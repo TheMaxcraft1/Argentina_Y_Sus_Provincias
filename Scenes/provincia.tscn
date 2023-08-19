@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgupw30j32r5n"]
+[gd_scene load_steps=2 format=3 uid="uid://bgupw30j32r5n"]
 
-[ext_resource type="Script" path="res://Provincia.gd" id="1_o3auk"]
-[ext_resource type="Texture2D" uid="uid://ephux31o2dwp" path="res://Textures/BuenosAires.png" id="2_xkr10"]
+[ext_resource type="Script" path="res://Scripts/Provincia.gd" id="1_qwep5"]
 
 [node name="Provincia" type="Area2D"]
-position = Vector2(219, 125)
-script = ExtResource("1_o3auk")
-sprite = ExtResource("2_xkr10")
+script = ExtResource("1_qwep5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
