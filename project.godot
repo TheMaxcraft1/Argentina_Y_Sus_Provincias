@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Argentina Y Sus Provincias"
-run/main_scene="res://provincia.tscn"
+run/main_scene="res://Scenes/provincia.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_height=1000
 
 [input]
 

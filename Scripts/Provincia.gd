@@ -1,13 +1,16 @@
 extends Area2D
 
-@export var sprite: Texture
+@export var sprite: Texture2D
 var mouse_pos
 var is_mouse_over_sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite2D.texture = sprite
-
+	var my_shape = RectangleShape2D.new()
+	my_shape.size = sprite.get_size()
+	
+	$CollisionShape2D.shape = my_shape
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

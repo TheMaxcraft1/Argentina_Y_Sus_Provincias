@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmx45utrusgf3"]
+
+[ext_resource type="Script" path="res://Scripts/Pais.gd" id="1_cop08"]
+[ext_resource type="Texture2D" uid="uid://bdyf1pp17t6vy" path="res://Textures/ArgentinaBlanca.png" id="1_imh8p"]
+[ext_resource type="Texture2D" uid="uid://cbbn5xxolnxhh" path="res://Textures/BuenosAires.png" id="2_fll10"]
+[ext_resource type="PackedScene" uid="uid://bgupw30j32r5n" path="res://Scenes/provincia.tscn" id="2_oh2uf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mben0"]
+size = Vector2(102, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkj7h"]
+size = Vector2(143, 199)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Argentina" type="Area2D" parent="."]
+position = Vector2(260, 493)
+script = ExtResource("1_cop08")
+
+[node name="ArgentinaSprite" type="Sprite2D" parent="Argentina"]
+texture = ExtResource("1_imh8p")
+
+[node name="LaPampa" type="CollisionShape2D" parent="Argentina"]
+position = Vector2(-80, -35)
+shape = SubResource("RectangleShape2D_mben0")
+
+[node name="BuenosAires" type="Area2D" parent="Argentina"]
+position = Vector2(37, -46)
+
+[node name="BuenosAiresCollision" type="CollisionShape2D" parent="Argentina/BuenosAires"]
+position = Vector2(5.5, 15.5)
+shape = SubResource("RectangleShape2D_wkj7h")
+
+[node name="BuenosAiresSprite" type="Sprite2D" parent="Argentina/BuenosAires"]
+visible = false
+position = Vector2(5, 16)
+texture = ExtResource("2_fll10")
+
+[node name="ProvinciasSpawner" type="Marker2D" parent="."]
+position = Vector2(577, 384)
+
+[node name="BuenosAiresProvincia" parent="." instance=ExtResource("2_oh2uf")]
+position = Vector2(577, 384)
+sprite = ExtResource("2_fll10")
+
+[connection signal="area_entered" from="Argentina/BuenosAires" to="Argentina" method="_on_buenos_aires_area_entered"]
