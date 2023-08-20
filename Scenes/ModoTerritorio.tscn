@@ -18,6 +18,7 @@ position = Vector2(260, 493)
 script = ExtResource("1_cop08")
 
 [node name="ArgentinaSprite" type="Sprite2D" parent="Argentina"]
+texture_filter = 1
 texture = ExtResource("1_imh8p")
 
 [node name="LaPampa" type="CollisionShape2D" parent="Argentina"]
