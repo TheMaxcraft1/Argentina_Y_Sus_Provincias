@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://tv2huern6bcx"]
+
+[ext_resource type="Script" path="res://Scenes/ModoNombres.gd" id="1_meqn4"]
+[ext_resource type="Texture2D" uid="uid://dm1olp325sedw" path="res://Textures/ArgentinaColores.png" id="1_omwkg"]
+[ext_resource type="FontFile" uid="uid://bhgv5tmtb36fc" path="res://Fonts/MinecraftRegular-Bmg3.otf" id="2_p83ph"]
+[ext_resource type="FontFile" uid="uid://bl5ehi4udgkic" path="res://Fonts/MinecraftItalic-R8Mo.otf" id="4_7g6e2"]
+[ext_resource type="Texture2D" uid="uid://va717iqqg8qv" path="res://Textures/PuntoProvincia.png" id="5_02cxq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_meqn4")
+
+[node name="Argentina" type="Area2D" parent="."]
+position = Vector2(260, 493)
+metadata/_edit_group_ = true
+
+[node name="ArgentinaSprite" type="Sprite2D" parent="Argentina"]
+texture_filter = 1
+texture = ExtResource("1_omwkg")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_7g6e2")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="EntreRiosLineEdit" type="LineEdit" parent="."]
+offset_left = 327.0
+offset_top = 320.0
+offset_right = 490.0
+offset_bottom = 353.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoEntreRios" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(320, 331)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="BuenosAiresLineEdit" type="LineEdit" parent="."]
+offset_left = 267.0
+offset_top = 435.0
+offset_right = 430.0
+offset_bottom = 466.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+context_menu_enabled = false
+
+[node name="PuntoBuenosAires" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(260, 447)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="CorrientesLineEdit" type="LineEdit" parent="."]
+offset_left = 363.0
+offset_top = 238.0
+offset_right = 526.0
+offset_bottom = 271.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 20
+
+[node name="PuntoCorrientes" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(356, 250)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="MisionesLineEdit" type="LineEdit" parent="."]
+offset_left = 454.0
+offset_top = 175.0
+offset_right = 617.0
+offset_bottom = 208.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 20
+
+[node name="PuntoMisiones" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(447, 187)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[connection signal="text_submitted" from="EntreRiosLineEdit" to="." method="_on_entre_rios_line_edit_text_submitted"]
+[connection signal="text_submitted" from="BuenosAiresLineEdit" to="." method="_on_buenos_aires_line_edit_text_submitted"]
