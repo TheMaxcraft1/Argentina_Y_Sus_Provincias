@@ -32,25 +32,41 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 
+[node name="MultiplierLabel" type="Label" parent="HUD"]
+offset_left = 688.0
+offset_top = 124.0
+offset_right = 756.0
+offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 50
+text = "1X!"
+
+[node name="FPSLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 35
+
 [node name="EntreRiosLineEdit" type="LineEdit" parent="."]
-offset_left = 327.0
-offset_top = 320.0
-offset_right = 490.0
-offset_bottom = 353.0
+offset_left = 341.0
+offset_top = 319.0
+offset_right = 504.0
+offset_bottom = 352.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("2_p83ph")
 theme_override_font_sizes/font_size = 24
 
 [node name="PuntoEntreRios" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(320, 331)
+position = Vector2(334, 331)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_02cxq")
 
 [node name="BuenosAiresLineEdit" type="LineEdit" parent="."]
-offset_left = 267.0
-offset_top = 435.0
-offset_right = 430.0
+offset_left = 334.0
+offset_top = 433.0
+offset_right = 497.0
 offset_bottom = 466.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("2_p83ph")
@@ -59,22 +75,22 @@ context_menu_enabled = false
 
 [node name="PuntoBuenosAires" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(260, 447)
+position = Vector2(328, 444)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_02cxq")
 
 [node name="CorrientesLineEdit" type="LineEdit" parent="."]
-offset_left = 363.0
-offset_top = 238.0
-offset_right = 526.0
-offset_bottom = 271.0
+offset_left = 386.0
+offset_top = 239.0
+offset_right = 549.0
+offset_bottom = 272.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("2_p83ph")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 
 [node name="PuntoCorrientes" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(356, 250)
+position = Vector2(377, 251)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_02cxq")
 
@@ -85,11 +101,296 @@ offset_right = 617.0
 offset_bottom = 208.0
 scale = Vector2(0.7, 0.7)
 theme_override_fonts/font = ExtResource("2_p83ph")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 
 [node name="PuntoMisiones" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(447, 187)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="JujuyLineEdit" type="LineEdit" parent="."]
+offset_left = 37.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 93.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoJujuy" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(159, 72)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="SaltaLineEdit" type="LineEdit" parent="."]
+offset_left = 12.0
+offset_top = 118.0
+offset_right = 175.0
+offset_bottom = 151.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoSalta" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(132, 131)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="CatamarcaLineEdit" type="LineEdit" parent="."]
+offset_left = 18.0
+offset_top = 171.0
+offset_right = 181.0
+offset_bottom = 204.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoCatamarca" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(138, 183)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="LaRiojaLineEdit" type="LineEdit" parent="."]
+offset_left = 6.0
+offset_top = 236.0
+offset_right = 169.0
+offset_bottom = 269.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoLaRioja" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(127, 248)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="SanJuanLineEdit" type="LineEdit" parent="."]
+offset_left = 8.0
+offset_top = 292.0
+offset_right = 171.0
+offset_bottom = 325.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoSanJuan" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(129, 303)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="MendozaLineEdit" type="LineEdit" parent="."]
+offset_left = 13.0
+offset_top = 378.0
+offset_right = 176.0
+offset_bottom = 411.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoMendoza" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(133, 389)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="NeuquenLineEdit" type="LineEdit" parent="."]
+offset_left = 2.0
+offset_top = 487.0
+offset_right = 165.0
+offset_bottom = 520.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoNeuquen" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(122, 498)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="RioNegroLineEdit" type="LineEdit" parent="."]
+offset_left = 172.0
+offset_top = 538.0
+offset_right = 335.0
+offset_bottom = 571.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoRioNegro" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(167, 548)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="ChubutLineEdit" type="LineEdit" parent="."]
+offset_left = 181.0
+offset_top = 630.0
+offset_right = 344.0
+offset_bottom = 663.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoChubut" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(173, 642)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="SantaCruzLineEdit" type="LineEdit" parent="."]
+offset_left = 150.0
+offset_top = 746.0
+offset_right = 313.0
+offset_bottom = 779.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoSantaCruz" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(143, 758)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="TierraDelFuegoLineEdit" type="LineEdit" parent="."]
+offset_left = 177.0
+offset_top = 905.0
+offset_right = 340.0
+offset_bottom = 938.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoTierraDelFuego" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(171, 917)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="FormosaLineEdit" type="LineEdit" parent="."]
+offset_left = 314.0
+offset_top = 110.0
+offset_right = 477.0
+offset_bottom = 143.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoFormosa" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(307, 121)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="ChacoLineEdit" type="LineEdit" parent="."]
+offset_left = 301.0
+offset_top = 159.0
+offset_right = 464.0
+offset_bottom = 192.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoChaco" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(295, 170)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="SantiagoDelEsteroLineEdit" type="LineEdit" parent="."]
+offset_left = 246.0
+offset_top = 215.0
+offset_right = 409.0
+offset_bottom = 248.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoSantiagoDelEstero" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(239, 227)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="TucumanLineEdit" type="LineEdit" parent="."]
+offset_left = 183.0
+offset_top = 181.0
+offset_right = 346.0
+offset_bottom = 214.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoTucuman" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(177, 194)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="SantaFeLineEdit" type="LineEdit" parent="."]
+offset_left = 302.0
+offset_top = 269.0
+offset_right = 465.0
+offset_bottom = 302.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoSantaFe" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(296, 281)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="CordobaLineEdit" type="LineEdit" parent="."]
+offset_left = 214.0
+offset_top = 304.0
+offset_right = 377.0
+offset_bottom = 337.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoCordoba" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(208, 315)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="LaPampaLineEdit" type="LineEdit" parent="."]
+offset_left = 171.0
+offset_top = 448.0
+offset_right = 334.0
+offset_bottom = 481.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoLaPampa" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(164, 459)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_02cxq")
+
+[node name="SanLuisLineEdit" type="LineEdit" parent="."]
+offset_left = 174.0
+offset_top = 361.0
+offset_right = 337.0
+offset_bottom = 394.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 24
+
+[node name="PuntoSanLuis" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(169, 372)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_02cxq")
 
