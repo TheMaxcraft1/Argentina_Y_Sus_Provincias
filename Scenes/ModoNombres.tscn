@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://tv2huern6bcx"]
+[gd_scene load_steps=8 format=3 uid="uid://tv2huern6bcx"]
 
 [ext_resource type="Script" path="res://Scenes/ModoNombres.gd" id="1_meqn4"]
 [ext_resource type="Texture2D" uid="uid://dm1olp325sedw" path="res://Textures/ArgentinaColores.png" id="1_omwkg"]
 [ext_resource type="FontFile" uid="uid://bhgv5tmtb36fc" path="res://Fonts/MinecraftRegular-Bmg3.otf" id="2_p83ph"]
 [ext_resource type="FontFile" uid="uid://bl5ehi4udgkic" path="res://Fonts/MinecraftItalic-R8Mo.otf" id="4_7g6e2"]
 [ext_resource type="Texture2D" uid="uid://va717iqqg8qv" path="res://Textures/PuntoProvincia.png" id="5_02cxq"]
+[ext_resource type="AudioStream" uid="uid://5pfv7vpjkpf" path="res://Sounds/ComboUp.wav" id="6_jniqe"]
+[ext_resource type="AudioStream" uid="uid://d0r5nvy7q0e65" path="res://Sounds/province_name_miss.wav" id="7_ameqi"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_meqn4")
@@ -47,6 +49,15 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("2_p83ph")
 theme_override_font_sizes/font_size = 35
+
+[node name="Button" type="Button" parent="HUD"]
+offset_left = 687.0
+offset_top = 953.0
+offset_right = 779.0
+offset_bottom = 984.0
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 20
+text = "RESTART"
 
 [node name="EntreRiosLineEdit" type="LineEdit" parent="."]
 offset_left = 341.0
@@ -394,5 +405,33 @@ position = Vector2(169, 372)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_02cxq")
 
+[node name="ComboUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jniqe")
+
+[node name="ComboMiss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ameqi")
+
+[connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
 [connection signal="text_submitted" from="EntreRiosLineEdit" to="." method="_on_entre_rios_line_edit_text_submitted"]
 [connection signal="text_submitted" from="BuenosAiresLineEdit" to="." method="_on_buenos_aires_line_edit_text_submitted"]
+[connection signal="text_submitted" from="CorrientesLineEdit" to="." method="_on_corrientes_line_edit_text_submitted"]
+[connection signal="text_submitted" from="MisionesLineEdit" to="." method="_on_misiones_line_edit_text_submitted"]
+[connection signal="text_submitted" from="JujuyLineEdit" to="." method="_on_jujuy_line_edit_text_submitted"]
+[connection signal="text_submitted" from="SaltaLineEdit" to="." method="_on_salta_line_edit_text_submitted"]
+[connection signal="text_submitted" from="CatamarcaLineEdit" to="." method="_on_catamarca_line_edit_text_submitted"]
+[connection signal="text_submitted" from="LaRiojaLineEdit" to="." method="_on_la_rioja_line_edit_text_submitted"]
+[connection signal="text_submitted" from="SanJuanLineEdit" to="." method="_on_san_juan_line_edit_text_submitted"]
+[connection signal="text_submitted" from="MendozaLineEdit" to="." method="_on_mendoza_line_edit_text_submitted"]
+[connection signal="text_submitted" from="NeuquenLineEdit" to="." method="_on_neuquen_line_edit_text_submitted"]
+[connection signal="text_submitted" from="RioNegroLineEdit" to="." method="_on_rio_negro_line_edit_text_submitted"]
+[connection signal="text_submitted" from="ChubutLineEdit" to="." method="_on_chubut_line_edit_text_submitted"]
+[connection signal="text_submitted" from="SantaCruzLineEdit" to="." method="_on_santa_cruz_line_edit_text_submitted"]
+[connection signal="text_submitted" from="TierraDelFuegoLineEdit" to="." method="_on_tierra_del_fuego_line_edit_text_submitted"]
+[connection signal="text_submitted" from="FormosaLineEdit" to="." method="_on_formosa_line_edit_text_submitted"]
+[connection signal="text_submitted" from="ChacoLineEdit" to="." method="_on_chaco_line_edit_text_submitted"]
+[connection signal="text_submitted" from="SantiagoDelEsteroLineEdit" to="." method="_on_santiago_del_estero_line_edit_text_submitted"]
+[connection signal="text_submitted" from="TucumanLineEdit" to="." method="_on_tucuman_line_edit_text_submitted"]
+[connection signal="text_submitted" from="SantaFeLineEdit" to="." method="_on_santa_fe_line_edit_text_submitted"]
+[connection signal="text_submitted" from="CordobaLineEdit" to="." method="_on_cordoba_line_edit_text_submitted"]
+[connection signal="text_submitted" from="LaPampaLineEdit" to="." method="_on_la_pampa_line_edit_text_submitted"]
+[connection signal="text_submitted" from="SanLuisLineEdit" to="." method="_on_san_luis_line_edit_text_submitted"]
