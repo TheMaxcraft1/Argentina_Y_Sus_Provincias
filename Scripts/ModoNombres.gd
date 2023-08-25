@@ -39,7 +39,19 @@ func comboUpSFX():
 	pitch += 0.05
 
 func _on_buenos_aires_line_edit_text_submitted(txt):		
-	provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit)
+	#provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit)
+	if txt.to_lower() == "buenos aires":
+		updateScoreLabel(100 * multiplier)
+		multiplier += 1
+		comboUpSFX()
+	else:
+		multiplier = 1
+		$ComboMiss.play()
+		$BuenosAiresLineEdit.set_visible(false)
+		$BuenosAiresLabel.set_visible(true)
+	updateMultiplierLabel()
+	$BuenosAiresLineEdit.set_editable(false)
+	$BuenosAiresLineEdit.set_focus_mode(Control.FOCUS_NONE)
 	
 
 func _on_entre_rios_line_edit_text_submitted(txt):

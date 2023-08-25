@@ -34,14 +34,15 @@ shape = SubResource("RectangleShape2D_wkj7h")
 
 [node name="BuenosAiresSprite" type="Sprite2D" parent="Argentina/BuenosAires"]
 visible = false
-position = Vector2(5, 16)
+texture_filter = 1
+position = Vector2(4, 16)
 texture = ExtResource("2_fll10")
+offset = Vector2(0.5, 0)
 
 [node name="ProvinciasSpawner" type="Marker2D" parent="."]
 position = Vector2(577, 384)
 
 [node name="BuenosAiresProvincia" parent="." instance=ExtResource("2_oh2uf")]
 position = Vector2(577, 384)
-sprite = ExtResource("2_fll10")
 
 [connection signal="area_entered" from="Argentina/BuenosAires" to="Argentina" method="_on_buenos_aires_area_entered"]

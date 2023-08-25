@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://tv2huern6bcx"]
 
-[ext_resource type="Script" path="res://Scenes/ModoNombres.gd" id="1_meqn4"]
+[ext_resource type="Script" path="res://Scripts/ModoNombres.gd" id="1_jd2nw"]
 [ext_resource type="Texture2D" uid="uid://dm1olp325sedw" path="res://Textures/ArgentinaColores.png" id="1_omwkg"]
 [ext_resource type="FontFile" uid="uid://bhgv5tmtb36fc" path="res://Fonts/MinecraftRegular-Bmg3.otf" id="2_p83ph"]
 [ext_resource type="FontFile" uid="uid://bl5ehi4udgkic" path="res://Fonts/MinecraftItalic-R8Mo.otf" id="4_7g6e2"]
@@ -9,7 +9,15 @@
 [ext_resource type="AudioStream" uid="uid://d0r5nvy7q0e65" path="res://Sounds/province_name_miss.wav" id="7_ameqi"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_meqn4")
+script = ExtResource("1_jd2nw")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+offset_left = -27.0
+offset_top = -15.0
+offset_right = 834.0
+offset_bottom = 1027.0
+color = Color(0.807843, 0.992157, 1, 1)
 
 [node name="Argentina" type="Area2D" parent="."]
 position = Vector2(260, 493)
@@ -89,6 +97,17 @@ texture_filter = 1
 position = Vector2(328, 444)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_02cxq")
+
+[node name="BuenosAiresLabel" type="Label" parent="."]
+visible = false
+offset_left = 334.0
+offset_top = 435.0
+offset_right = 489.0
+offset_bottom = 463.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_p83ph")
+theme_override_font_sizes/font_size = 20
+text = "Buenos Aires"
 
 [node name="CorrientesLineEdit" type="LineEdit" parent="."]
 offset_left = 386.0

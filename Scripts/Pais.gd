@@ -13,5 +13,6 @@ func _process(delta):
 
 
 func _on_buenos_aires_area_entered(area):
-	if area.get_name() == "BuenosAiresProvincia":
+	if area.get_name() == "BuenosAiresProvincia" and !area.get_is_left_mouse_pressed():
+		print(area.get_is_left_mouse_pressed())
 		$BuenosAires/BuenosAiresSprite.set_visible(true)
