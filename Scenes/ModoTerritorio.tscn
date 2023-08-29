@@ -1,48 +1,72 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmx45utrusgf3"]
+[gd_scene load_steps=10 format=3 uid="uid://bmx45utrusgf3"]
 
-[ext_resource type="Script" path="res://Scripts/Pais.gd" id="1_cop08"]
 [ext_resource type="Texture2D" uid="uid://bdyf1pp17t6vy" path="res://Textures/ArgentinaBlanca.png" id="1_imh8p"]
+[ext_resource type="Script" path="res://Scripts/ModoTerritorio.gd" id="1_pcqyy"]
 [ext_resource type="Texture2D" uid="uid://cbbn5xxolnxhh" path="res://Textures/BuenosAires.png" id="2_fll10"]
 [ext_resource type="PackedScene" uid="uid://bgupw30j32r5n" path="res://Scenes/provincia.tscn" id="2_oh2uf"]
+[ext_resource type="Texture2D" uid="uid://u0tpioxn6p0i" path="res://Textures/LaPampa.png" id="4_c6lei"]
+[ext_resource type="FontFile" uid="uid://bhgv5tmtb36fc" path="res://Fonts/MinecraftRegular-Bmg3.otf" id="6_6ello"]
+[ext_resource type="AudioStream" uid="uid://5pfv7vpjkpf" path="res://Sounds/ComboUp.wav" id="7_ebe5g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mben0"]
-size = Vector2(102, 115)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2cr"]
+size = Vector2(2, 2)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkj7h"]
-size = Vector2(143, 199)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uswcn"]
+size = Vector2(2, 2)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_pcqyy")
+province_scene = ExtResource("2_oh2uf")
 
 [node name="Argentina" type="Area2D" parent="."]
 position = Vector2(260, 493)
-script = ExtResource("1_cop08")
 
 [node name="ArgentinaSprite" type="Sprite2D" parent="Argentina"]
 texture_filter = 1
 texture = ExtResource("1_imh8p")
 
-[node name="LaPampa" type="CollisionShape2D" parent="Argentina"]
-position = Vector2(-80, -35)
-shape = SubResource("RectangleShape2D_mben0")
-
 [node name="BuenosAires" type="Area2D" parent="Argentina"]
 position = Vector2(37, -46)
 
 [node name="BuenosAiresCollision" type="CollisionShape2D" parent="Argentina/BuenosAires"]
-position = Vector2(5.5, 15.5)
-shape = SubResource("RectangleShape2D_wkj7h")
+shape = SubResource("RectangleShape2D_tp2cr")
 
 [node name="BuenosAiresSprite" type="Sprite2D" parent="Argentina/BuenosAires"]
 visible = false
 texture_filter = 1
-position = Vector2(4, 16)
+position = Vector2(4.5, 16)
 texture = ExtResource("2_fll10")
-offset = Vector2(0.5, 0)
+
+[node name="LaPampa" type="Area2D" parent="Argentina"]
+position = Vector2(-79, -32)
+
+[node name="LaPampaCollision" type="CollisionShape2D" parent="Argentina/LaPampa"]
+shape = SubResource("RectangleShape2D_uswcn")
+
+[node name="LaPampaSprite" type="Sprite2D" parent="Argentina/LaPampa"]
+visible = false
+position = Vector2(-3, -1)
+texture = ExtResource("4_c6lei")
 
 [node name="ProvinciasSpawner" type="Marker2D" parent="."]
 position = Vector2(577, 384)
 
-[node name="BuenosAiresProvincia" parent="." instance=ExtResource("2_oh2uf")]
+[node name="BuenosAiresProvinciaTEST" parent="." instance=ExtResource("2_oh2uf")]
+visible = false
 position = Vector2(577, 384)
 
-[connection signal="area_entered" from="Argentina/BuenosAires" to="Argentina" method="_on_buenos_aires_area_entered"]
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="FPSLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_6ello")
+theme_override_font_sizes/font_size = 24
+
+[node name="ComboUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ebe5g")
+
+[connection signal="area_entered" from="Argentina/BuenosAires" to="." method="_on_buenos_aires_area_entered"]
+[connection signal="area_exited" from="Argentina/BuenosAires" to="." method="_on_buenos_aires_area_exited"]
+[connection signal="area_entered" from="Argentina/LaPampa" to="." method="_on_la_pampa_area_entered"]
+[connection signal="area_exited" from="Argentina/LaPampa" to="." method="_on_la_pampa_area_exited"]

@@ -2,8 +2,7 @@ extends Area2D
 
 @export var sprite: Texture2D
 var mouse_pos
-var is_mouse_over_sprite
-var is_left_mouse_pressed = false
+var is_selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,26 +15,22 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	mouse_pos = get_viewport().get_mouse_position()
-
-	if Input.is_action_pressed("left_mouse"):
-		is_left_mouse_pressed = true
-	elif Input.is_action_just_released("left_mouse"):
-		is_left_mouse_pressed = false
 		
-	if is_mouse_over_sprite and is_left_mouse_pressed:
+	if is_selected:
 		position = position.lerp(mouse_pos, delta * 20)
 		#position = mouse_pos
 		
-#	if Input.is_action_pressed("left_mouse"):
-#		if is_mouse_over_sprite:
-#			position = position.lerp(mouse_pos, delta * 20)
 
-func get_is_left_mouse_pressed():
-	return is_left_mouse_pressed
+func get_is_selected():
+	return is_selected
 
-func _on_mouse_entered():
-	is_mouse_over_sprite = true
+func set_sprite(sprite):
+	self.sprite = sprite
 
-
-func _on_mouse_exited():
-	is_mouse_over_sprite = false
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			is_selected = true
+		else:
+			is_selected = false
+			
