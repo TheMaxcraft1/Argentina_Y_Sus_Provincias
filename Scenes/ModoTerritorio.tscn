@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmx45utrusgf3"]
+[gd_scene load_steps=53 format=3 uid="uid://bmx45utrusgf3"]
 
 [ext_resource type="Texture2D" uid="uid://bdyf1pp17t6vy" path="res://Textures/ArgentinaBlanca.png" id="1_imh8p"]
 [ext_resource type="Script" path="res://Scripts/ModoTerritorio.gd" id="1_pcqyy"]
@@ -6,12 +6,97 @@
 [ext_resource type="PackedScene" uid="uid://bgupw30j32r5n" path="res://Scenes/provincia.tscn" id="2_oh2uf"]
 [ext_resource type="Texture2D" uid="uid://u0tpioxn6p0i" path="res://Textures/LaPampa.png" id="4_c6lei"]
 [ext_resource type="FontFile" uid="uid://bhgv5tmtb36fc" path="res://Fonts/MinecraftRegular-Bmg3.otf" id="6_6ello"]
+[ext_resource type="Texture2D" uid="uid://hqb3xge5d5gy" path="res://Textures/EntreRios.png" id="6_h41hh"]
 [ext_resource type="AudioStream" uid="uid://5pfv7vpjkpf" path="res://Sounds/ComboUp.wav" id="7_ebe5g"]
+[ext_resource type="Texture2D" uid="uid://cf10o04loaobt" path="res://Textures/Corrientes.png" id="7_ri852"]
+[ext_resource type="Texture2D" uid="uid://doa0tcwqy2v72" path="res://Textures/Misiones.png" id="8_cgpru"]
+[ext_resource type="Texture2D" uid="uid://dhrxglnujxco" path="res://Textures/Formosa.png" id="9_qia1k"]
+[ext_resource type="Texture2D" uid="uid://b7j53ymm4nbb7" path="res://Textures/Jujuy.png" id="10_fmk3v"]
+[ext_resource type="Texture2D" uid="uid://bglgngd0yi24k" path="res://Textures/Salta.png" id="11_ym3gm"]
+[ext_resource type="Texture2D" uid="uid://u55njs1kosin" path="res://Textures/Catamarca.png" id="12_1ixjd"]
+[ext_resource type="Texture2D" uid="uid://23sdhaiampud" path="res://Textures/Tucuman.png" id="13_x0vgb"]
+[ext_resource type="Texture2D" uid="uid://01eku2no37dt" path="res://Textures/SantiagoDelEstero.png" id="14_3xv0e"]
+[ext_resource type="Texture2D" uid="uid://bgesbmwtcxuon" path="res://Textures/Chaco.png" id="15_6at4x"]
+[ext_resource type="Texture2D" uid="uid://b020cw8q7vsbf" path="res://Textures/SantaFe.png" id="16_at4a1"]
+[ext_resource type="Texture2D" uid="uid://cy67n5fxpgepu" path="res://Textures/LaRioja.png" id="17_eyfdb"]
+[ext_resource type="Texture2D" uid="uid://cmylp8i60wss6" path="res://Textures/SanJuan.png" id="18_3tkev"]
+[ext_resource type="Texture2D" uid="uid://b8nhvwk6af2uh" path="res://Textures/Cordoba.png" id="19_a8c48"]
+[ext_resource type="Texture2D" uid="uid://c4k53limj0bjr" path="res://Textures/SanLuis.png" id="20_0bl0p"]
+[ext_resource type="Texture2D" uid="uid://14ymsunr481r" path="res://Textures/Mendoza.png" id="21_8ptmo"]
+[ext_resource type="Texture2D" uid="uid://b50y4cres5b68" path="res://Textures/Neuquen.png" id="22_03u68"]
+[ext_resource type="Texture2D" uid="uid://cmsbchmpvwon4" path="res://Textures/Chubut.png" id="23_ivnlj"]
+[ext_resource type="Texture2D" uid="uid://wcj5culv7ima" path="res://Textures/RioNegro.png" id="23_twade"]
+[ext_resource type="Texture2D" uid="uid://bpe6nm4xb3ntg" path="res://Textures/SantaCruz.png" id="24_rnum5"]
+[ext_resource type="Texture2D" uid="uid://c5sn2ifrgw7jj" path="res://Textures/TierraDelFuego.png" id="25_pp7a8"]
+[ext_resource type="AudioStream" uid="uid://d0r5nvy7q0e65" path="res://Sounds/province_name_miss.wav" id="29_apuo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2cr"]
 size = Vector2(2, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uswcn"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka17c"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47q6o"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg5ch"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thro0"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv1cw"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wcfs"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7al7h"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji7r6"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cobel"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7w8j"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t17a3"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s56ys"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ywgq"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5pqh"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63lxc"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4xvs"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms10i"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fdsv"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enf2q"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cn8mx"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg127"]
 size = Vector2(2, 2)
 
 [node name="Node2D" type="Node2D"]
@@ -48,6 +133,238 @@ visible = false
 position = Vector2(-3, -1)
 texture = ExtResource("4_c6lei")
 
+[node name="EntreRios" type="Area2D" parent="Argentina"]
+position = Vector2(65, -169)
+
+[node name="EntreRiosCollision" type="CollisionShape2D" parent="Argentina/EntreRios"]
+shape = SubResource("RectangleShape2D_ka17c")
+
+[node name="EntreRiosSprite" type="Sprite2D" parent="Argentina/EntreRios"]
+visible = false
+position = Vector2(-1, 5)
+texture = ExtResource("6_h41hh")
+
+[node name="Corrientes" type="Area2D" parent="Argentina"]
+position = Vector2(104, -255)
+
+[node name="CorrientesCollision" type="CollisionShape2D" parent="Argentina/Corrientes"]
+shape = SubResource("RectangleShape2D_47q6o")
+
+[node name="CorrientesSprite" type="Sprite2D" parent="Argentina/Corrientes"]
+visible = false
+position = Vector2(-1, 5.5)
+texture = ExtResource("7_ri852")
+
+[node name="Misiones" type="Area2D" parent="Argentina"]
+position = Vector2(183, -298)
+
+[node name="MisionesCollision" type="CollisionShape2D" parent="Argentina/Misiones"]
+shape = SubResource("RectangleShape2D_tg5ch")
+
+[node name="MisionesSprite" type="Sprite2D" parent="Argentina/Misiones"]
+visible = false
+position = Vector2(-8, -2)
+texture = ExtResource("8_cgpru")
+
+[node name="Formosa" type="Area2D" parent="Argentina"]
+position = Vector2(51, -362)
+
+[node name="FormosaCollision" type="CollisionShape2D" parent="Argentina/Formosa"]
+shape = SubResource("RectangleShape2D_thro0")
+
+[node name="FormosaSprite" type="Sprite2D" parent="Argentina/Formosa"]
+visible = false
+position = Vector2(4, 2)
+texture = ExtResource("9_qia1k")
+
+[node name="Jujuy" type="Area2D" parent="Argentina"]
+position = Vector2(-98, -411)
+
+[node name="JujuyCollision" type="CollisionShape2D" parent="Argentina/Jujuy"]
+shape = SubResource("RectangleShape2D_uv1cw")
+
+[node name="JujuySprite" type="Sprite2D" parent="Argentina/Jujuy"]
+visible = false
+position = Vector2(11, 9)
+texture = ExtResource("10_fmk3v")
+
+[node name="Salta" type="Area2D" parent="Argentina"]
+position = Vector2(-63, -351)
+
+[node name="SaltaCollision" type="CollisionShape2D" parent="Argentina/Salta"]
+shape = SubResource("RectangleShape2D_7wcfs")
+
+[node name="SaltaSprite" type="Sprite2D" parent="Argentina/Salta"]
+visible = false
+position = Vector2(-16.5, -23)
+texture = ExtResource("11_ym3gm")
+
+[node name="Catamarca" type="Area2D" parent="Argentina"]
+position = Vector2(-123, -295)
+
+[node name="CatamarcaCollision" type="CollisionShape2D" parent="Argentina/Catamarca"]
+shape = SubResource("RectangleShape2D_7al7h")
+one_way_collision_margin = 0.0
+
+[node name="CatamarcaSprite" type="Sprite2D" parent="Argentina/Catamarca"]
+visible = false
+position = Vector2(9.5, 13.5)
+texture = ExtResource("12_1ixjd")
+
+[node name="Tucuman" type="Area2D" parent="Argentina"]
+position = Vector2(-76, -302)
+
+[node name="TucumanCollision" type="CollisionShape2D" parent="Argentina/Tucuman"]
+shape = SubResource("RectangleShape2D_ji7r6")
+
+[node name="TucumanSprite" type="Sprite2D" parent="Argentina/Tucuman"]
+visible = false
+position = Vector2(0, 3)
+texture = ExtResource("13_x0vgb")
+
+[node name="SantiagoDelEstero" type="Area2D" parent="Argentina"]
+position = Vector2(-28, -283)
+
+[node name="SantiagoDelEsteroCollision" type="CollisionShape2D" parent="Argentina/SantiagoDelEstero"]
+shape = SubResource("RectangleShape2D_cobel")
+
+[node name="SantiagoDelEsteroSprite" type="Sprite2D" parent="Argentina/SantiagoDelEstero"]
+visible = false
+position = Vector2(-3.5, 9)
+texture = ExtResource("14_3xv0e")
+
+[node name="Chaco" type="Area2D" parent="Argentina"]
+position = Vector2(36, -315)
+
+[node name="ChacoCollision" type="CollisionShape2D" parent="Argentina/Chaco"]
+shape = SubResource("RectangleShape2D_o7w8j")
+
+[node name="ChacoSprite" type="Sprite2D" parent="Argentina/Chaco"]
+visible = false
+position = Vector2(-6, -8.5)
+texture = ExtResource("15_6at4x")
+
+[node name="SantaFe" type="Area2D" parent="Argentina"]
+position = Vector2(23, -189)
+
+[node name="SantaFeCollision" type="CollisionShape2D" parent="Argentina/SantaFe"]
+shape = SubResource("RectangleShape2D_t17a3")
+
+[node name="SantaFeSprite" type="Sprite2D" parent="Argentina/SantaFe"]
+visible = false
+position = Vector2(6.5, -1)
+texture = ExtResource("16_at4a1")
+
+[node name="LaRioja" type="Area2D" parent="Argentina"]
+position = Vector2(-115, -228)
+
+[node name="LaRiojaCollision" type="CollisionShape2D" parent="Argentina/LaRioja"]
+shape = SubResource("RectangleShape2D_s56ys")
+
+[node name="LaRiojaSprite" type="Sprite2D" parent="Argentina/LaRioja"]
+visible = false
+position = Vector2(-11.5, 6)
+texture = ExtResource("17_eyfdb")
+
+[node name="SanJuan" type="Area2D" parent="Argentina"]
+position = Vector2(-157, -195)
+
+[node name="SanJuanCollision" type="CollisionShape2D" parent="Argentina/SanJuan"]
+shape = SubResource("RectangleShape2D_3ywgq")
+
+[node name="SanJuanSprite" type="Sprite2D" parent="Argentina/SanJuan"]
+visible = false
+position = Vector2(4, -7.5)
+texture = ExtResource("18_3tkev")
+
+[node name="Cordoba" type="Area2D" parent="Argentina"]
+position = Vector2(-38, -162)
+
+[node name="CordobaCollision" type="CollisionShape2D" parent="Argentina/Cordoba"]
+shape = SubResource("RectangleShape2D_g5pqh")
+
+[node name="CordobaSprite" type="Sprite2D" parent="Argentina/Cordoba"]
+visible = false
+position = Vector2(-1, 1)
+texture = ExtResource("19_a8c48")
+
+[node name="SanLuis" type="Area2D" parent="Argentina"]
+position = Vector2(-89, -116)
+
+[node name="SanLuisCollision" type="CollisionShape2D" parent="Argentina/SanLuis"]
+shape = SubResource("RectangleShape2D_63lxc")
+
+[node name="SanLuisSprite" type="Sprite2D" parent="Argentina/SanLuis"]
+visible = false
+position = Vector2(-5, 0.5)
+texture = ExtResource("20_0bl0p")
+
+[node name="Mendoza" type="Area2D" parent="Argentina"]
+position = Vector2(-141, -95)
+
+[node name="MendozaCollision" type="CollisionShape2D" parent="Argentina/Mendoza"]
+shape = SubResource("RectangleShape2D_v4xvs")
+
+[node name="MendozaSprite" type="Sprite2D" parent="Argentina/Mendoza"]
+visible = false
+position = Vector2(-1.5, 3.5)
+texture = ExtResource("21_8ptmo")
+
+[node name="Neuquen" type="Area2D" parent="Argentina"]
+position = Vector2(-166, 19)
+
+[node name="NeuquenCollision" type="CollisionShape2D" parent="Argentina/Neuquen"]
+shape = SubResource("RectangleShape2D_ms10i")
+
+[node name="NeuquenSprite" type="Sprite2D" parent="Argentina/Neuquen"]
+visible = false
+position = Vector2(-2, -6)
+texture = ExtResource("22_03u68")
+
+[node name="RioNegro" type="Area2D" parent="Argentina"]
+position = Vector2(-107, 57)
+
+[node name="RioNegroCollision" type="CollisionShape2D" parent="Argentina/RioNegro"]
+shape = SubResource("RectangleShape2D_3fdsv")
+
+[node name="RioNegroSprite" type="Sprite2D" parent="Argentina/RioNegro"]
+visible = false
+position = Vector2(-0.5, -15.5)
+texture = ExtResource("23_twade")
+
+[node name="Chubut" type="Area2D" parent="Argentina"]
+position = Vector2(-129, 155)
+
+[node name="ChubutCollision" type="CollisionShape2D" parent="Argentina/Chubut"]
+shape = SubResource("RectangleShape2D_enf2q")
+
+[node name="ChubutSprite" type="Sprite2D" parent="Argentina/Chubut"]
+visible = false
+position = Vector2(10, -2.5)
+texture = ExtResource("23_ivnlj")
+
+[node name="SantaCruz" type="Area2D" parent="Argentina"]
+position = Vector2(-145, 283)
+
+[node name="SantaCruzCollision" type="CollisionShape2D" parent="Argentina/SantaCruz"]
+shape = SubResource("RectangleShape2D_cn8mx")
+
+[node name="SantaCruzSprite" type="Sprite2D" parent="Argentina/SantaCruz"]
+visible = false
+position = Vector2(8, 5)
+texture = ExtResource("24_rnum5")
+
+[node name="TierraDelFuego" type="Area2D" parent="Argentina"]
+position = Vector2(-94, 426)
+
+[node name="TierraDelFuegoCollision" type="CollisionShape2D" parent="Argentina/TierraDelFuego"]
+shape = SubResource("RectangleShape2D_pg127")
+
+[node name="TierraDelFuegoSprite" type="Sprite2D" parent="Argentina/TierraDelFuego"]
+visible = false
+position = Vector2(11.5, -14)
+texture = ExtResource("25_pp7a8")
+
 [node name="ProvinciasSpawner" type="Marker2D" parent="."]
 position = Vector2(577, 384)
 
@@ -66,7 +383,52 @@ theme_override_font_sizes/font_size = 24
 [node name="ComboUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_ebe5g")
 
+[node name="ComboMiss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_apuo4")
+
 [connection signal="area_entered" from="Argentina/BuenosAires" to="." method="_on_buenos_aires_area_entered"]
 [connection signal="area_exited" from="Argentina/BuenosAires" to="." method="_on_buenos_aires_area_exited"]
 [connection signal="area_entered" from="Argentina/LaPampa" to="." method="_on_la_pampa_area_entered"]
 [connection signal="area_exited" from="Argentina/LaPampa" to="." method="_on_la_pampa_area_exited"]
+[connection signal="area_entered" from="Argentina/EntreRios" to="." method="_on_entre_rios_area_entered"]
+[connection signal="area_exited" from="Argentina/EntreRios" to="." method="_on_entre_rios_area_exited"]
+[connection signal="area_entered" from="Argentina/Corrientes" to="." method="_on_corrientes_area_entered"]
+[connection signal="area_exited" from="Argentina/Corrientes" to="." method="_on_corrientes_area_exited"]
+[connection signal="area_entered" from="Argentina/Misiones" to="." method="_on_misiones_area_entered"]
+[connection signal="area_exited" from="Argentina/Misiones" to="." method="_on_misiones_area_exited"]
+[connection signal="area_entered" from="Argentina/Formosa" to="." method="_on_formosa_area_entered"]
+[connection signal="area_exited" from="Argentina/Formosa" to="." method="_on_formosa_area_exited"]
+[connection signal="area_entered" from="Argentina/Jujuy" to="." method="_on_jujuy_area_entered"]
+[connection signal="area_exited" from="Argentina/Jujuy" to="." method="_on_jujuy_area_exited"]
+[connection signal="area_entered" from="Argentina/Salta" to="." method="_on_salta_area_entered"]
+[connection signal="area_exited" from="Argentina/Salta" to="." method="_on_salta_area_exited"]
+[connection signal="area_entered" from="Argentina/Catamarca" to="." method="_on_catamarca_area_entered"]
+[connection signal="area_exited" from="Argentina/Catamarca" to="." method="_on_catamarca_area_exited"]
+[connection signal="area_entered" from="Argentina/Tucuman" to="." method="_on_tucuman_area_entered"]
+[connection signal="area_exited" from="Argentina/Tucuman" to="." method="_on_tucuman_area_exited"]
+[connection signal="area_entered" from="Argentina/SantiagoDelEstero" to="." method="_on_santiago_del_estero_area_entered"]
+[connection signal="area_exited" from="Argentina/SantiagoDelEstero" to="." method="_on_santiago_del_estero_area_exited"]
+[connection signal="area_entered" from="Argentina/Chaco" to="." method="_on_chaco_area_entered"]
+[connection signal="area_exited" from="Argentina/Chaco" to="." method="_on_chaco_area_exited"]
+[connection signal="area_entered" from="Argentina/SantaFe" to="." method="_on_santa_fe_area_entered"]
+[connection signal="area_exited" from="Argentina/SantaFe" to="." method="_on_santa_fe_area_exited"]
+[connection signal="area_entered" from="Argentina/LaRioja" to="." method="_on_la_rioja_area_entered"]
+[connection signal="area_exited" from="Argentina/LaRioja" to="." method="_on_la_rioja_area_exited"]
+[connection signal="area_entered" from="Argentina/SanJuan" to="." method="_on_san_juan_area_entered"]
+[connection signal="area_exited" from="Argentina/SanJuan" to="." method="_on_san_juan_area_exited"]
+[connection signal="area_entered" from="Argentina/Cordoba" to="." method="_on_cordoba_area_entered"]
+[connection signal="area_exited" from="Argentina/Cordoba" to="." method="_on_cordoba_area_exited"]
+[connection signal="area_entered" from="Argentina/SanLuis" to="." method="_on_san_luis_area_entered"]
+[connection signal="area_exited" from="Argentina/SanLuis" to="." method="_on_san_luis_area_exited"]
+[connection signal="area_entered" from="Argentina/Mendoza" to="." method="_on_mendoza_area_entered"]
+[connection signal="area_exited" from="Argentina/Mendoza" to="." method="_on_mendoza_area_exited"]
+[connection signal="area_entered" from="Argentina/Neuquen" to="." method="_on_neuquen_area_entered"]
+[connection signal="area_exited" from="Argentina/Neuquen" to="." method="_on_neuquen_area_exited"]
+[connection signal="area_entered" from="Argentina/RioNegro" to="." method="_on_rio_negro_area_entered"]
+[connection signal="area_exited" from="Argentina/RioNegro" to="." method="_on_rio_negro_area_exited"]
+[connection signal="area_entered" from="Argentina/Chubut" to="." method="_on_chubut_area_entered"]
+[connection signal="area_exited" from="Argentina/Chubut" to="." method="_on_chubut_area_exited"]
+[connection signal="area_entered" from="Argentina/SantaCruz" to="." method="_on_santa_cruz_area_entered"]
+[connection signal="area_exited" from="Argentina/SantaCruz" to="." method="_on_santa_cruz_area_exited"]
+[connection signal="area_entered" from="Argentina/TierraDelFuego" to="." method="_on_tierra_del_fuego_area_entered"]
+[connection signal="area_exited" from="Argentina/TierraDelFuego" to="." method="_on_tierra_del_fuego_area_exited"]
