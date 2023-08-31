@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bmx45utrusgf3"]
+[gd_scene load_steps=55 format=3 uid="uid://bmx45utrusgf3"]
 
 [ext_resource type="Texture2D" uid="uid://bdyf1pp17t6vy" path="res://Textures/ArgentinaBlanca.png" id="1_imh8p"]
 [ext_resource type="Script" path="res://Scripts/ModoTerritorio.gd" id="1_pcqyy"]
@@ -28,7 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://wcj5culv7ima" path="res://Textures/RioNegro.png" id="23_twade"]
 [ext_resource type="Texture2D" uid="uid://bpe6nm4xb3ntg" path="res://Textures/SantaCruz.png" id="24_rnum5"]
 [ext_resource type="Texture2D" uid="uid://c5sn2ifrgw7jj" path="res://Textures/TierraDelFuego.png" id="25_pp7a8"]
+[ext_resource type="FontFile" uid="uid://cvuuhuehfvcq8" path="res://Fonts/MinecraftBold-nMK1.otf" id="28_2dcj4"]
 [ext_resource type="AudioStream" uid="uid://d0r5nvy7q0e65" path="res://Sounds/province_name_miss.wav" id="29_apuo4"]
+[ext_resource type="FontFile" uid="uid://bl5ehi4udgkic" path="res://Fonts/MinecraftItalic-R8Mo.otf" id="29_vms44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2cr"]
 size = Vector2(2, 2)
@@ -380,6 +382,58 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("6_6ello")
 theme_override_font_sizes/font_size = 24
 
+[node name="RestartButton" type="Button" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("28_2dcj4")
+theme_override_font_sizes/font_size = 24
+text = "RESTART"
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("29_vms44")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="MultiplierLabel" type="Label" parent="HUD"]
+offset_left = 688.0
+offset_top = 124.0
+offset_right = 756.0
+offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("6_6ello")
+theme_override_font_sizes/font_size = 50
+text = "1X!"
+
+[node name="CurrentProvincLabel" type="Label" parent="HUD"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -16.5
+offset_bottom = 16.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("28_2dcj4")
+theme_override_font_sizes/font_size = 30
+text = "Posicioná a "
+
 [node name="ComboUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_ebe5g")
 
@@ -432,3 +486,4 @@ stream = ExtResource("29_apuo4")
 [connection signal="area_exited" from="Argentina/SantaCruz" to="." method="_on_santa_cruz_area_exited"]
 [connection signal="area_entered" from="Argentina/TierraDelFuego" to="." method="_on_tierra_del_fuego_area_entered"]
 [connection signal="area_exited" from="Argentina/TierraDelFuego" to="." method="_on_tierra_del_fuego_area_exited"]
+[connection signal="pressed" from="HUD/RestartButton" to="." method="_on_restart_button_pressed"]

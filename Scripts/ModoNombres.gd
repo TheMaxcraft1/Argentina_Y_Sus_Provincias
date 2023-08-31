@@ -13,13 +13,13 @@ func _ready():
 
 func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit):
 	if txt.to_lower() == provinciaNombre:
-		updateScoreLabel(100 * multiplier)
+		updateScore(100 * multiplier)
 		multiplier += 1
 		comboUpSFX()
 	else:
 		multiplier = 1
 		$ComboMiss.play()
-	updateMultiplierLabel()
+	updateMultiplier()
 	provinciaLineEdit.set_editable(false)
 	provinciaLineEdit.set_focus_mode(Control.FOCUS_NONE)
 
@@ -41,7 +41,7 @@ func comboUpSFX():
 func _on_buenos_aires_line_edit_text_submitted(txt):		
 	#provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit)
 	if txt.to_lower() == "buenos aires":
-		updateScoreLabel(100 * multiplier)
+		updateScore(100 * multiplier)
 		multiplier += 1
 		comboUpSFX()
 	else:
@@ -49,10 +49,9 @@ func _on_buenos_aires_line_edit_text_submitted(txt):
 		$ComboMiss.play()
 		$BuenosAiresLineEdit.set_visible(false)
 		$BuenosAiresLabel.set_visible(true)
-	updateMultiplierLabel()
+	updateMultiplier()
 	$BuenosAiresLineEdit.set_editable(false)
 	$BuenosAiresLineEdit.set_focus_mode(Control.FOCUS_NONE)
-	
 
 func _on_entre_rios_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "entre ríos", $EntreRiosLineEdit)
@@ -60,26 +59,20 @@ func _on_entre_rios_line_edit_text_submitted(txt):
 func _on_corrientes_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "corrientes", $CorrientesLineEdit)
 
-
 func _on_misiones_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "misiones", $MisionesLineEdit)
-
 
 func _on_jujuy_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "jujuy", $JujuyLineEdit)
 
-
 func _on_salta_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "salta", $SaltaLineEdit)
-
 
 func _on_catamarca_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "catamarca", $CatamarcaLineEdit)
 
-
 func _on_la_rioja_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "la rioja", $LaRiojaLineEdit)
-
 
 func _on_san_juan_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "san juan", $SanJuanLineEdit)
@@ -87,10 +80,8 @@ func _on_san_juan_line_edit_text_submitted(txt):
 func _on_mendoza_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "mendoza", $MendozaLineEdit)
 
-
 func _on_neuquen_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "neuquén", $NeuquenLineEdit)
-
 
 func _on_rio_negro_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "río negro", $RioNegroLineEdit)
@@ -101,43 +92,34 @@ func _on_chubut_line_edit_text_submitted(txt):
 func _on_santa_cruz_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "santa cruz", $SantaCruzLineEdit)
 
-
 func _on_tierra_del_fuego_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "tierra del fuego", $TierraDelFuegoLineEdit)
-
 
 func _on_formosa_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "formosa", $FormosaLineEdit)
 
-
 func _on_chaco_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "chaco", $ChacoLineEdit)
-
 
 func _on_santiago_del_estero_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "santiago del estero", $SantiagoDelEsteroLineEdit)
 
-
 func _on_tucuman_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "tucumán", $TucumanLineEdit)
-
 
 func _on_santa_fe_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "santa fe", $SantaFeLineEdit)
 
-
 func _on_cordoba_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "córdoba", $CordobaLineEdit)
-
 
 func _on_la_pampa_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "la pampa", $LaPampaLineEdit)
 
-
 func _on_san_luis_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "san luis", $SanLuisLineEdit)
 
-func updateMultiplierLabel():
+func updateMultiplier():
 	var mLabel = $HUD/MultiplierLabel 
 	if multiplier > 3:
 		multiplier = 3
@@ -158,7 +140,7 @@ func updateMultiplierLabel():
 	
 
 	
-func updateScoreLabel(points):
+func updateScore(points):
 	score += points
 	$HUD/ScoreLabel.set_text(str(score))
 

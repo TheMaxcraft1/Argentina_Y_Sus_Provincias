@@ -1,22 +1,45 @@
 extends Node2D
 
 @export var province_scene: PackedScene
+var score
+var multiplier
 var on_province
 var current_province
-var province_list = ["BuenosAires", "Catamarca", "Chaco", "Chubut", "Cordoba", "Corrientes", "EntreRios", 
-	"Formosa", "Jujuy", "LaPampa", "LaRioja", "Mendoza", "Misiones", "Neuquen", "RioNegro", "Salta", 
-	"SanJuan", "SanLuis", "SantaCruz", "SantaFe", "SantiagoDelEstero", "TierraDelFuego", "Tucuman"]
+var province_dict = {
+	"BuenosAires": "Buenos Aires",
+	"Catamarca": "Catamarca",
+	"Chaco": "Chaco",
+	"Cordoba": "Córdoba",
+	"Corrientes": "Corrientes",
+	"EntreRios": "Entre Ríos",
+	"Formosa": "Formosa",
+	"Jujuy": "Jujuy",
+	"LaPampa": "La Pampa",
+	"LaRioja": "La Rioja",
+	"Mendoza": "Mendoza",
+	"Misiones": "Misiones",
+	"Neuquen": "Neuquén",
+	"RioNegro": "Río Negro",
+	"Salta": "Salta",
+	"SanJuan": "San Juan",
+	"SanLuis": "San Luis",
+	"SantaCruz": "Santa Cruz",
+	"SantaFe": "Santa Fe",
+	"SantiagoDelEstero": "Santiago Del Estero",
+	"TierraDelFuego": "Tierra Del Fuego",
+	"Tucuman": "Tucumán"
+	}
 #var province_list = ["BuenosAires", "LaPampa"]
+var province_list = province_dict.keys()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	score = 0
+	multiplier = 1
 	randomize()
-	#current_province = $BuenosAiresProvincia
 	spawn_province()
 	
 func _process(delta):
 	show_fps()
-	
 	province_matching_territory()
 	
 func show_fps():
@@ -35,6 +58,8 @@ func spawn_province():
 		current_province.set_sprite(sprite)
 		current_province.set_name(province_name + "Provincia")
 		
+		#La variable province_name tiene el nombre de la provincia pero sin formatear
+		update_current_province_label(province_dict.get(province_name)) 
 		add_child(current_province)
 
 func check_province_name(province, province_name):
@@ -96,11 +121,15 @@ func province_matching_territory():
 			#$Argentina/current_province.get_name().left(-9)/(current_province.get_name().left(-9) + "Sprite").set_visible(true)
 			#$Argentina/BuenosAires/BuenosAiresSprite.set_visible(true)
 			print("Acierto")
+			updateScore(100 * multiplier)
+			multiplier += 1
 			$ComboUp.play()
 		else:
 			print("NO ES EL TERRITORIO DE LA PROVINCIA")
+			multiplier = 1
 			$ComboMiss.play()
 		
+		updateMultiplierLabel()
 		current_province.queue_free()
 		spawn_province()
 		on_province = false
@@ -113,7 +142,8 @@ func on_province_area_exited(area, province):
 	if area.get_name() == province:
 		on_province = false
 
-			
+func update_current_province_label(province_name):
+	$HUD/CurrentProvincLabel.set_text("Posicioná a " + "\n" + province_name)
 		
 func _on_buenos_aires_area_entered(area):
 	on_province_area_entered(area, "BuenosAiresProvincia")
@@ -252,3 +282,30 @@ func _on_tierra_del_fuego_area_entered(area):
 
 func _on_tierra_del_fuego_area_exited(area):
 	on_province_area_exited(area, "TierraDelFuegoProvincia")
+
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()
+	
+func updateMultiplierLabel():
+	var mLabel = $HUD/MultiplierLabel 
+	if multiplier > 3:
+		multiplier = 3
+	mLabel.set_text(str(multiplier) + "X!")
+	if multiplier == 1:
+		mLabel.add_theme_font_size_override("font_size", 50)
+		mLabel.add_theme_color_override("font_color", Color(255,255,255))
+		mLabel.set_rotation(0)
+	elif multiplier == 2:
+		mLabel.add_theme_font_size_override("font_size", 60)
+		mLabel.add_theme_color_override("font_color", Color(251,255,0))
+		mLabel.set_rotation(deg_to_rad(15))
+		
+	elif multiplier == 3:
+		mLabel.add_theme_font_size_override("font_size", 75)
+		mLabel.add_theme_color_override("font_color", Color(255,0,0))
+		mLabel.set_rotation(deg_to_rad(30))
+	
+func updateScore(points):
+	score += points
+	$HUD/ScoreLabel.set_text(str(score))
+
