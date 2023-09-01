@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx1uinpkttdi8"]
+
+[ext_resource type="FontFile" uid="uid://bhgv5tmtb36fc" path="res://Fonts/MinecraftRegular-Bmg3.otf" id="1_4lfax"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fjgs0"]
+[ext_resource type="AudioStream" uid="uid://vr360eb7lffo" path="res://Sounds/ButtonFocus.wav" id="3_dpvs7"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_fjgs0")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ModoTerritorioButton" type="Button" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -44.0
+offset_right = 198.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4lfax")
+theme_override_font_sizes/font_size = 50
+text = "Modo Territorio"
+
+[node name="ModoNombreButton" type="Button" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -172.0
+offset_right = 166.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4lfax")
+theme_override_font_sizes/font_size = 50
+text = "Modo Nombres"
+
+[node name="CreditosButton" type="Button" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 76.0
+offset_right = 94.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4lfax")
+theme_override_font_sizes/font_size = 50
+text = "Creditos"
+
+[node name="CreditosLabel" type="RichTextLabel" parent="HUD"]
+visible = false
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = -12.0
+offset_right = -112.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("1_4lfax")
+theme_override_font_sizes/normal_font_size = 30
+text = "Developed By				TheMaxcraft1
+"
+scroll_following = true
+
+[node name="BackCreditosButton" type="Button" parent="HUD"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -33.0
+offset_right = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_4lfax")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="ButtonFocus" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dpvs7")
+
+[connection signal="mouse_entered" from="HUD/ModoTerritorioButton" to="." method="_on_modo_territorio_button_mouse_entered"]
+[connection signal="pressed" from="HUD/ModoTerritorioButton" to="." method="_on_modo_territorio_button_pressed"]
+[connection signal="mouse_entered" from="HUD/ModoNombreButton" to="." method="_on_modo_nombre_button_mouse_entered"]
+[connection signal="pressed" from="HUD/ModoNombreButton" to="." method="_on_modo_nombre_button_pressed"]
+[connection signal="mouse_entered" from="HUD/CreditosButton" to="." method="_on_creditos_button_mouse_entered"]
+[connection signal="pressed" from="HUD/CreditosButton" to="." method="_on_creditos_button_pressed"]
+[connection signal="mouse_entered" from="HUD/BackCreditosButton" to="." method="_on_back_creditos_button_mouse_entered"]
+[connection signal="pressed" from="HUD/BackCreditosButton" to="." method="_on_back_creditos_button_pressed"]
