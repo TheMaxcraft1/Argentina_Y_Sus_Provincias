@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx1uinpkttdi8"]
+[gd_scene load_steps=6 format=3 uid="uid://cx1uinpkttdi8"]
 
-[ext_resource type="FontFile" uid="uid://bhgv5tmtb36fc" path="res://Fonts/MinecraftRegular-Bmg3.otf" id="1_4lfax"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fjgs0"]
-[ext_resource type="AudioStream" uid="uid://vr360eb7lffo" path="res://Sounds/ButtonFocus.wav" id="3_dpvs7"]
+[ext_resource type="FontFile" uid="uid://dc6wdnqnv1abf" path="res://Fonts/MatrixSans-Regular.ttf" id="2_kcglm"]
+[ext_resource type="AudioStream" uid="uid://bf6bwdfjlaxq5" path="res://Sounds/ButtonFocus.wav" id="3_dpvs7"]
+[ext_resource type="FontFile" uid="uid://bwduwiy8ft7lp" path="res://Fonts/Monocraft.otf" id="3_i01c2"]
+[ext_resource type="AudioStream" uid="uid://vr360eb7lffo" path="res://Sounds/ButtonPressed.wav" id="4_87vej"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fjgs0")
@@ -21,9 +23,11 @@ offset_right = 198.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_4lfax")
-theme_override_font_sizes/font_size = 50
-text = "Modo Territorio"
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 64
+text = "MODO TERRITORIO"
 
 [node name="ModoNombreButton" type="Button" parent="HUD"]
 anchors_preset = 8
@@ -37,9 +41,10 @@ offset_right = 166.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_4lfax")
-theme_override_font_sizes/font_size = 50
-text = "Modo Nombres"
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 64
+text = "MODO NOMBRES"
 
 [node name="CreditosButton" type="Button" parent="HUD"]
 anchors_preset = 8
@@ -53,9 +58,10 @@ offset_right = 94.0
 offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_4lfax")
-theme_override_font_sizes/font_size = 50
-text = "Creditos"
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 64
+text = "CREDITOS"
 
 [node name="CreditosLabel" type="RichTextLabel" parent="HUD"]
 visible = false
@@ -65,13 +71,13 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 96.0
 offset_top = -12.0
-offset_right = -112.0
+offset_right = -48.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_fonts/normal_font = ExtResource("1_4lfax")
+theme_override_fonts/normal_font = ExtResource("2_kcglm")
 theme_override_font_sizes/normal_font_size = 30
 text = "Developed By				TheMaxcraft1
 "
@@ -89,12 +95,15 @@ offset_top = -33.0
 offset_right = 31.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_4lfax")
+theme_override_fonts/font = ExtResource("2_kcglm")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
 [node name="ButtonFocus" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_dpvs7")
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_87vej")
 
 [connection signal="mouse_entered" from="HUD/ModoTerritorioButton" to="." method="_on_modo_territorio_button_mouse_entered"]
 [connection signal="pressed" from="HUD/ModoTerritorioButton" to="." method="_on_modo_territorio_button_pressed"]

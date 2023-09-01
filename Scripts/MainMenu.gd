@@ -11,14 +11,17 @@ func _process(delta):
 	pass
 
 func _on_modo_territorio_button_pressed():
+	$ButtonPressed.play()
 	get_tree().change_scene_to_file("res://Scenes/ModoTerritorio.tscn")
 
 
 func _on_modo_nombre_button_pressed():
+	$ButtonPressed.play()
 	get_tree().change_scene_to_file("res://Scenes/ModoNombres.tscn")
 
 
 func _on_creditos_button_pressed():
+	$ButtonPressed.play()
 	$HUD/ModoTerritorioButton.set_visible(false)
 	$HUD/ModoNombreButton.set_visible(false)
 	$HUD/CreditosButton.set_visible(false)
@@ -26,6 +29,7 @@ func _on_creditos_button_pressed():
 	$HUD/BackCreditosButton.set_visible(true)
 
 func _on_back_creditos_button_pressed():
+	$ButtonPressed.play()
 	$HUD/ModoTerritorioButton.set_visible(true)
 	$HUD/ModoNombreButton.set_visible(true)
 	$HUD/CreditosButton.set_visible(true)
