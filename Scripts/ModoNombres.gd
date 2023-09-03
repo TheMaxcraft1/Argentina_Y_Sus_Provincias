@@ -123,20 +123,20 @@ func updateMultiplier():
 	var mLabel = $HUD/MultiplierLabel 
 	if multiplier > 3:
 		multiplier = 3
-	mLabel.set_text(str(multiplier) + "X!")
+	mLabel.set_text(str(multiplier) + "X")
 	if multiplier == 1:
 		mLabel.add_theme_font_size_override("font_size", 50)
 		mLabel.add_theme_color_override("font_color", Color(255,255,255))
-		mLabel.set_rotation(0)
+		#mLabel.set_rotation(0)
 	elif multiplier == 2:
-		mLabel.add_theme_font_size_override("font_size", 60)
+		mLabel.add_theme_font_size_override("font_size", 55)
 		mLabel.add_theme_color_override("font_color", Color(251,255,0))
-		mLabel.set_rotation(deg_to_rad(15))
+		#mLabel.set_rotation(deg_to_rad(15))
 		
 	elif multiplier == 3:
-		mLabel.add_theme_font_size_override("font_size", 75)
+		mLabel.add_theme_font_size_override("font_size", 65)
 		mLabel.add_theme_color_override("font_color", Color(255,0,0))
-		mLabel.set_rotation(deg_to_rad(30))
+		#mLabel.set_rotation(deg_to_rad(30))
 	
 
 	
