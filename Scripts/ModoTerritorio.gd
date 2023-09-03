@@ -27,7 +27,8 @@ var province_dict = {
 	"SantaFe": "Santa Fe",
 	"SantiagoDelEstero": "Santiago Del Estero",
 	"TierraDelFuego": "Tierra Del Fuego",
-	"Tucuman": "Tucumán"
+	"Tucuman": "Tucumán",
+	"Chubut": "Chubut"
 	}
 #var province_list = ["BuenosAires", "LaPampa"]
 var province_list = province_dict.keys()
@@ -143,7 +144,7 @@ func on_province_area_exited(area, province):
 		on_province = false
 
 func update_current_province_label(province_name):
-	$HUD/CurrentProvincLabel.set_text("Posicioná a " + "\n" + province_name)
+	$HUD/CurrentProvinceLabel.set_text("Posicioná a " + "\n" + province_name)
 		
 func _on_buenos_aires_area_entered(area):
 	on_province_area_entered(area, "BuenosAiresProvincia")
@@ -290,20 +291,17 @@ func updateMultiplierLabel():
 	var mLabel = $HUD/MultiplierLabel 
 	if multiplier > 3:
 		multiplier = 3
-	mLabel.set_text(str(multiplier) + "X!")
+	mLabel.set_text(str(multiplier) + "X")
 	if multiplier == 1:
 		mLabel.add_theme_font_size_override("font_size", 50)
 		mLabel.add_theme_color_override("font_color", Color(255,255,255))
-		mLabel.set_rotation(0)
 	elif multiplier == 2:
 		mLabel.add_theme_font_size_override("font_size", 60)
 		mLabel.add_theme_color_override("font_color", Color(251,255,0))
-		mLabel.set_rotation(deg_to_rad(15))
 		
 	elif multiplier == 3:
 		mLabel.add_theme_font_size_override("font_size", 75)
 		mLabel.add_theme_color_override("font_color", Color(255,0,0))
-		mLabel.set_rotation(deg_to_rad(30))
 	
 func updateScore(points):
 	score += points
