@@ -1,115 +1,118 @@
 [gd_scene load_steps=6 format=3 uid="uid://cx1uinpkttdi8"]
 
-[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fjgs0"]
-[ext_resource type="FontFile" uid="uid://dc6wdnqnv1abf" path="res://Fonts/MatrixSans-Regular.ttf" id="2_kcglm"]
-[ext_resource type="AudioStream" uid="uid://bf6bwdfjlaxq5" path="res://Sounds/ButtonFocus.wav" id="3_dpvs7"]
+[ext_resource type="FontFile" uid="uid://cbr37a7fhvbow" path="res://Fonts/porter-sans-inline-block.otf" id="1_jt2c1"]
 [ext_resource type="FontFile" uid="uid://bwduwiy8ft7lp" path="res://Fonts/Monocraft.otf" id="3_i01c2"]
-[ext_resource type="AudioStream" uid="uid://vr360eb7lffo" path="res://Sounds/ButtonPressed.wav" id="4_87vej"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_fjgs0")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hjsd"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4a07"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
-[node name="ModoTerritorioButton" type="Button" parent="HUD"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -44.0
-offset_right = 198.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
-theme_override_constants/h_separation = 0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3f55"]
+bg_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 800.0
+offset_bottom = 1000.0
+color = Color(0.262745, 0.580392, 0.631373, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 800.0
+offset_bottom = 1000.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_jt2c1")
+theme_override_font_sizes/font_size = 75
+text = "ARGENTINA
+Y SUS 
+PROVINCIAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_i01c2")
-theme_override_font_sizes/font_size = 64
-text = "MODO TERRITORIO"
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hjsd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t4a07")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g3f55")
+text = "Modo Territorio"
 
-[node name="ModoNombreButton" type="Button" parent="HUD"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -172.0
-offset_right = 166.0
-offset_bottom = -114.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 1, 1, 1)
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_i01c2")
-theme_override_font_sizes/font_size = 64
-text = "MODO NOMBRES"
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hjsd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t4a07")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g3f55")
+text = "Modo Nombres"
 
-[node name="CreditosButton" type="Button" parent="HUD"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = 76.0
-offset_right = 94.0
-offset_bottom = 151.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 1, 1, 1)
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_i01c2")
-theme_override_font_sizes/font_size = 64
-text = "CREDITOS"
-
-[node name="CreditosLabel" type="RichTextLabel" parent="HUD"]
-visible = false
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 96.0
-offset_top = -12.0
-offset_right = -48.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_fonts/normal_font = ExtResource("2_kcglm")
-theme_override_font_sizes/normal_font_size = 30
-text = "Developed By				TheMaxcraft1
-"
-scroll_following = true
-
-[node name="BackCreditosButton" type="Button" parent="HUD"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -33.0
-offset_right = 31.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_kcglm")
-theme_override_font_sizes/font_size = 24
-text = "Back"
-
-[node name="ButtonFocus" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_dpvs7")
-
-[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_87vej")
-
-[connection signal="mouse_entered" from="HUD/ModoTerritorioButton" to="." method="_on_modo_territorio_button_mouse_entered"]
-[connection signal="pressed" from="HUD/ModoTerritorioButton" to="." method="_on_modo_territorio_button_pressed"]
-[connection signal="mouse_entered" from="HUD/ModoNombreButton" to="." method="_on_modo_nombre_button_mouse_entered"]
-[connection signal="pressed" from="HUD/ModoNombreButton" to="." method="_on_modo_nombre_button_pressed"]
-[connection signal="mouse_entered" from="HUD/CreditosButton" to="." method="_on_creditos_button_mouse_entered"]
-[connection signal="pressed" from="HUD/CreditosButton" to="." method="_on_creditos_button_pressed"]
-[connection signal="mouse_entered" from="HUD/BackCreditosButton" to="." method="_on_back_creditos_button_mouse_entered"]
-[connection signal="pressed" from="HUD/BackCreditosButton" to="." method="_on_back_creditos_button_pressed"]
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hjsd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t4a07")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g3f55")
+text = "Créditos"
