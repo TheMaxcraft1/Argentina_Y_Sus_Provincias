@@ -1,53 +1,46 @@
 extends Node2D
 
-
+var main_menu
+var credits
+var SCREEN_WIDTH = 800
+var button_pressed = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	main_menu = $MainMarginContainer
+	credits = $CreditosVBoxContainer
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if button_pressed:
+		main_menu.position = lerp(main_menu.position, Vector2(-SCREEN_WIDTH,0), 0.1)
+		credits.position = lerp(credits.position, Vector2(0,0), 0.1)
+		
+
+
 
 func _on_modo_territorio_button_pressed():
 	$ButtonPressed.play()
-	get_tree().change_scene_to_file("res://Scenes/ModoTerritorio.tscn")
 
 
-func _on_modo_nombre_button_pressed():
+func _on_modo_territorio_button_mouse_entered():
+	$ButtonHovered.play()
+
+
+func _on_modo_nombres_button_pressed():
 	$ButtonPressed.play()
-	get_tree().change_scene_to_file("res://Scenes/ModoNombres.tscn")
+
+
+func _on_modo_nombres_button_mouse_entered():
+	$ButtonHovered.play()
 
 
 func _on_creditos_button_pressed():
 	$ButtonPressed.play()
-	$HUD/ModoTerritorioButton.set_visible(false)
-	$HUD/ModoNombreButton.set_visible(false)
-	$HUD/CreditosButton.set_visible(false)
-	$HUD/CreditosLabel.set_visible(true)
-	$HUD/BackCreditosButton.set_visible(true)
-
-func _on_back_creditos_button_pressed():
-	$ButtonPressed.play()
-	$HUD/ModoTerritorioButton.set_visible(true)
-	$HUD/ModoNombreButton.set_visible(true)
-	$HUD/CreditosButton.set_visible(true)
-	$HUD/CreditosLabel.set_visible(false)
-	$HUD/BackCreditosButton.set_visible(false)
-
-
-func _on_modo_territorio_button_mouse_entered():
-	$ButtonFocus.play()
-
-
-func _on_modo_nombre_button_mouse_entered():
-	$ButtonFocus.play()
+	button_pressed = true
+	
 
 
 func _on_creditos_button_mouse_entered():
-	$ButtonFocus.play()
-
-
-func _on_back_creditos_button_mouse_entered():
-	$ButtonFocus.play()
+	$ButtonHovered.play()
