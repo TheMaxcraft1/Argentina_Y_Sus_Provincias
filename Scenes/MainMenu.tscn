@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx1uinpkttdi8"]
+[gd_scene load_steps=14 format=3 uid="uid://cx1uinpkttdi8"]
 
 [ext_resource type="FontFile" uid="uid://cbr37a7fhvbow" path="res://Fonts/porter-sans-inline-block.otf" id="1_jt2c1"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_o8k0b"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bwduwiy8ft7lp" path="res://Fonts/Monocraft.otf" id="3_i01c2"]
 [ext_resource type="AudioStream" uid="uid://bf6bwdfjlaxq5" path="res://Sounds/ButtonHovered.wav" id="4_464xt"]
 [ext_resource type="AudioStream" uid="uid://vr360eb7lffo" path="res://Sounds/ButtonPressed.wav" id="5_aeu13"]
+[ext_resource type="AudioStream" uid="uid://qoivgopwgq8" path="res://Music/Argentina_8bits.ogg" id="7_cs474"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hjsd"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -22,6 +23,27 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3f55"]
+bg_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1jkt"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mknmj"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8fbf"]
 bg_color = Color(0, 0, 0, 0.686275)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -122,64 +144,83 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_t4a07")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g3f55")
 text = "Créditos"
 
-[node name="ButtonHovered" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_464xt")
-
-[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_aeu13")
-
-[node name="CreditosVBoxContainer" type="MarginContainer" parent="."]
+[node name="Creditos" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 800.0
 offset_right = 1600.0
 offset_bottom = 1000.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditosVBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 198
+[node name="MarginContainer" type="MarginContainer" parent="Creditos"]
+offset_right = 800.0
+offset_bottom = 296.0
 
-[node name="Label" type="Label" parent="CreditosVBoxContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Creditos/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Creditos/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_jt2c1")
 theme_override_font_sizes/font_size = 75
-text = "CRÉDITOS"
+text = "Créditos"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditosVBoxContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Creditos"]
+offset_top = 296.0
+offset_right = 800.0
+offset_bottom = 1000.0
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Creditos/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="CreditosVBoxContainer/VBoxContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_i01c2")
 theme_override_font_sizes/font_size = 50
 text = "DESARROLLADO POR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="CreditosVBoxContainer/VBoxContainer/VBoxContainer"]
-visible = false
+[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_i01c2")
 theme_override_font_sizes/font_size = 27
 text = "Máximo Alfredo \"TheMaxcraft1\" Fain Fernández"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CreditosVBoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+text = "Máximo Alfredo \"TheMaxcraft1\" Fain Fernández"
 
-[node name="Label" type="Label" parent="CreditosVBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_i01c2")
 theme_override_font_sizes/font_size = 50
 text = "PROGRAMAS UTILIZADOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="CreditosVBoxContainer/VBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_i01c2")
 theme_override_font_sizes/font_size = 27
 text = "GIMP
@@ -188,9 +229,89 @@ BFXR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 50
+text = "MÚSICA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 27
+text = "TAL PERSONA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 50
+text = "AGRADECIMIENTOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 27
+text = "GameDevMDQ
+En especial...."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Creditos"]
+layout_mode = 2
+offset_top = 954.0
+offset_right = 800.0
+offset_bottom = 1000.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 25
+
+[node name="AtrasCreditosButton" type="Button" parent="Creditos/MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_c1jkt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mknmj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g8fbf")
+text = "ATRÁS"
+
+[node name="ButtonHovered" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_464xt")
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_aeu13")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_cs474")
+autoplay = true
+
 [connection signal="mouse_entered" from="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer/ModoTerritorioMarginContainer/ModoTerritorioButton" to="." method="_on_modo_territorio_button_mouse_entered"]
 [connection signal="pressed" from="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer/ModoTerritorioMarginContainer/ModoTerritorioButton" to="." method="_on_modo_territorio_button_pressed"]
 [connection signal="mouse_entered" from="MainMarginContainer/MainVBoxContainer/ModoNombresVBoxContainer/ModoNombresMarginContainer/ModoNombresButton" to="." method="_on_modo_nombres_button_mouse_entered"]
 [connection signal="pressed" from="MainMarginContainer/MainVBoxContainer/ModoNombresVBoxContainer/ModoNombresMarginContainer/ModoNombresButton" to="." method="_on_modo_nombres_button_pressed"]
 [connection signal="mouse_entered" from="MainMarginContainer/MainVBoxContainer/CreditosVBoxContainer/CreditosMarginContainer/CreditosButton" to="." method="_on_creditos_button_mouse_entered"]
 [connection signal="pressed" from="MainMarginContainer/MainVBoxContainer/CreditosVBoxContainer/CreditosMarginContainer/CreditosButton" to="." method="_on_creditos_button_pressed"]
+[connection signal="mouse_entered" from="Creditos/MarginContainer3/AtrasCreditosButton" to="." method="_on_atras_creditos_button_mouse_entered"]
+[connection signal="pressed" from="Creditos/MarginContainer3/AtrasCreditosButton" to="." method="_on_atras_creditos_button_pressed"]
