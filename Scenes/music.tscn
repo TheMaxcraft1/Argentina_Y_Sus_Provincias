@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ta8mfirvvi2s"]
+
+[ext_resource type="AudioStream" uid="uid://qoivgopwgq8" path="res://Music/Argentina_8bits.ogg" id="1_05r4h"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_05r4h")
+autoplay = true

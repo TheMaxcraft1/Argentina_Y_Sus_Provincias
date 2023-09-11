@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cx1uinpkttdi8"]
+[gd_scene load_steps=13 format=3 uid="uid://cx1uinpkttdi8"]
 
 [ext_resource type="FontFile" uid="uid://cbr37a7fhvbow" path="res://Fonts/porter-sans-inline-block.otf" id="1_jt2c1"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_o8k0b"]
@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://bwduwiy8ft7lp" path="res://Fonts/Monocraft.otf" id="3_i01c2"]
 [ext_resource type="AudioStream" uid="uid://bf6bwdfjlaxq5" path="res://Sounds/ButtonHovered.wav" id="4_464xt"]
 [ext_resource type="AudioStream" uid="uid://vr360eb7lffo" path="res://Sounds/ButtonPressed.wav" id="5_aeu13"]
-[ext_resource type="AudioStream" uid="uid://qoivgopwgq8" path="res://Music/Argentina_8bits.ogg" id="7_cs474"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hjsd"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -152,6 +151,7 @@ offset_right = 1600.0
 offset_bottom = 1000.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Creditos"]
+layout_mode = 0
 offset_right = 800.0
 offset_bottom = 296.0
 
@@ -169,6 +169,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="Creditos"]
+layout_mode = 0
 offset_top = 296.0
 offset_right = 800.0
 offset_bottom = 1000.0
@@ -176,12 +177,12 @@ theme_override_constants/margin_top = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Creditos/MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 35
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
+[node name="DesarrolladoPor" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/DesarrolladoPor"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -192,22 +193,20 @@ text = "DESARROLLADO POR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Creditos/MarginContainer2/VBoxContainer/DesarrolladoPor"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("3_i01c2")
-theme_override_font_sizes/font_size = 27
-text = "Máximo Alfredo \"TheMaxcraft1\" Fain Fernández"
+theme_override_fonts/normal_font = ExtResource("3_i01c2")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "Máximo Alfredo [color=#fcbf45]\"TheMaxcraft1[/color]\" Fain Fernández"
+fit_content = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Máximo Alfredo \"TheMaxcraft1\" Fain Fernández"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
+[node name="ProgramasUtilizados" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/ProgramasUtilizados"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -217,7 +216,7 @@ text = "PROGRAMAS UTILIZADOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/ProgramasUtilizados"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -229,10 +228,10 @@ BFXR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
+[node name="Musica" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/Musica"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -243,20 +242,31 @@ text = "MÚSICA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer3"]
+[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/Musica"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_i01c2")
 theme_override_font_sizes/font_size = 27
-text = "TAL PERSONA"
+text = "Himno Argentino 8 bits
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
+[node name="Label3" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/Musica"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_i01c2")
+theme_override_font_sizes/font_size = 20
+text = "\"Emanuel B.\" - Música por (A)ether"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Agradecimientos" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer4"]
+[node name="Label" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/Agradecimientos"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -267,14 +277,14 @@ text = "AGRADECIMIENTOS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/VBoxContainer4"]
+[node name="Label2" type="Label" parent="Creditos/MarginContainer2/VBoxContainer/Agradecimientos"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_i01c2")
 theme_override_font_sizes/font_size = 27
 text = "GameDevMDQ
-En especial...."
+Papá y Mamá"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -302,10 +312,6 @@ stream = ExtResource("4_464xt")
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_aeu13")
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_cs474")
-autoplay = true
 
 [connection signal="mouse_entered" from="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer/ModoTerritorioMarginContainer/ModoTerritorioButton" to="." method="_on_modo_territorio_button_mouse_entered"]
 [connection signal="pressed" from="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer/ModoTerritorioMarginContainer/ModoTerritorioButton" to="." method="_on_modo_territorio_button_pressed"]
