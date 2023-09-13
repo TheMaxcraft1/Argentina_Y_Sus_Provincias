@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var province_scene: PackedScene
+var is_game_finished
 var score
 var multiplier
 var on_province
@@ -34,14 +35,18 @@ var province_dict = {
 var province_list = province_dict.keys()
 
 func _ready():
+	is_game_finished = false
 	score = 0
 	multiplier = 1
 	randomize()
 	spawn_province()
+	$HUD/GameFinish.set_visible(false)
+	$Opacity.set_visible(false)
 	
 func _process(delta):
-	show_fps()
+	#show_fps()
 	province_matching_territory()
+	game_finish()
 	
 func show_fps():
 	$HUD/FPSLabel.add_theme_color_override("font_color", Color.AQUAMARINE)
@@ -62,6 +67,13 @@ func spawn_province():
 		#La variable province_name tiene el nombre de la provincia pero sin formatear
 		update_current_province_label(province_dict.get(province_name)) 
 		add_child(current_province)
+	else:
+		is_game_finished = true
+
+func game_finish():
+	if is_game_finished:
+		$HUD/GameFinish.set_visible(true)
+		$Opacity.set_visible(true)
 
 func check_province_name(province, province_name):
 	return province.get_name() == province_name
@@ -307,3 +319,20 @@ func updateScore(points):
 	score += points
 	$HUD/ScoreLabel.set_text(str(score))
 
+
+
+func _on_replay_button_pressed():
+	$ButtonPressed.play()
+	await $ButtonPressed.finished
+	get_tree().reload_current_scene()
+
+func _on_replay_button_mouse_entered():
+	$ButtonHovered.play()
+
+func _on_home_button_pressed():
+	$ButtonPressed.play()
+	await $ButtonPressed.finished
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	
+func _on_home_button_mouse_entered():
+	$ButtonHovered.play()
