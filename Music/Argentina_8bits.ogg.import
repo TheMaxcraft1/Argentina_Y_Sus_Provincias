@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Argentina_8bits.ogg-60dec3d313a019c64fdb959aa
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

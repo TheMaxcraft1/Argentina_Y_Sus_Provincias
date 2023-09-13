@@ -3,13 +3,17 @@ extends Node2D
 var score = 0
 var multiplier = 1
 var pitch = 1
+var province_counter
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score = 0
 	multiplier = 1
+	province_counter = 0
 	$HUD/MultiplierLabel.add_theme_font_size_override("font_size", 50)
 	$HUD/MultiplierLabel.add_theme_color_override("font_color", Color(255,255,255))
+	$HUD/GameFinish.set_visible(false)
+	$Opacity.set_visible(false)
 
 func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit):
 	if txt.to_lower() == provinciaNombre:
@@ -22,11 +26,18 @@ func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit
 	updateMultiplier()
 	provinciaLineEdit.set_editable(false)
 	provinciaLineEdit.set_focus_mode(Control.FOCUS_NONE)
+	province_counter += 1
 
+func game_finish():
+	if province_counter == 23:
+		await get_tree().create_timer(1).timeout
+		$HUD/GameFinish.set_visible(true)
+		$Opacity.set_visible(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$HUD/FPSLabel.set_text(str(Engine.get_frames_per_second()))
+	#$HUD/FPSLabel.set_text(str(Engine.get_frames_per_second()))
+	game_finish()
 
 func comboUpSFX():
 	if multiplier == 2:
@@ -35,23 +46,22 @@ func comboUpSFX():
 	elif multiplier >= 3:
 		$ComboUp.set_pitch_scale(pitch)
 	$ComboUp.play()
-	print(str(pitch))
 	pitch += 0.05
 
 func _on_buenos_aires_line_edit_text_submitted(txt):		
-	#provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit)
-	if txt.to_lower() == "buenos aires":
-		updateScore(100 * multiplier)
-		multiplier += 1
-		comboUpSFX()
-	else:
-		multiplier = 1
-		$ComboMiss.play()
-		$BuenosAiresLineEdit.set_visible(false)
-		$BuenosAiresLabel.set_visible(true)
-	updateMultiplier()
-	$BuenosAiresLineEdit.set_editable(false)
-	$BuenosAiresLineEdit.set_focus_mode(Control.FOCUS_NONE)
+	provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit)
+#	if txt.to_lower() == "buenos aires":
+#		updateScore(100 * multiplier)
+#		multiplier += 1
+#		comboUpSFX()
+#	else:
+#		multiplier = 1
+#		$ComboMiss.play()
+#		$BuenosAiresLineEdit.set_visible(false)
+#		$BuenosAiresLabel.set_visible(true)
+#	updateMultiplier()
+#	$BuenosAiresLineEdit.set_editable(false)
+#	$BuenosAiresLineEdit.set_focus_mode(Control.FOCUS_NONE)
 
 func _on_entre_rios_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "entre ríos", $EntreRiosLineEdit)
@@ -144,6 +154,18 @@ func updateScore(points):
 	score += points
 	$HUD/ScoreLabel.set_text(str(score))
 
-
-func _on_button_pressed():
+func _on_replay_button_pressed():
+	$ButtonPressed.play()
+	await $ButtonPressed.finished
 	get_tree().reload_current_scene()
+
+func _on_replay_button_mouse_entered():
+	$ButtonHovered.play()
+
+func _on_home_button_pressed():
+	$ButtonPressed.play()
+	await $ButtonPressed.finished
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+
+func _on_home_button_mouse_entered():
+	$ButtonHovered.play()

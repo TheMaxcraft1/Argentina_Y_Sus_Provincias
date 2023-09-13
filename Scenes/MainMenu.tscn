@@ -198,9 +198,9 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("3_i01c2")
-theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "Máximo Alfredo [color=#fcbf45]\"TheMaxcraft1[/color]\" Fain Fernández"
+text = "[center]Máximo Alfredo [color=#fcbf45]\"TheMaxcraft1[/color]\" Fain Fernández [/center]"
 fit_content = true
 
 [node name="ProgramasUtilizados" type="VBoxContainer" parent="Creditos/MarginContainer2/VBoxContainer"]
@@ -283,8 +283,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_i01c2")
 theme_override_font_sizes/font_size = 27
-text = "GameDevMDQ
-Papá y Mamá"
+text = "A Mi Familia
+A GameDevMDQ
+- En Especial a Faren, JP y Chexmo -
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -296,7 +298,7 @@ offset_bottom = 1000.0
 size_flags_vertical = 3
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_bottom = 10
 
 [node name="AtrasCreditosButton" type="Button" parent="Creditos/MarginContainer3"]
 layout_mode = 2

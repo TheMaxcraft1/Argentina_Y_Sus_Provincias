@@ -17,6 +17,7 @@ func _process(delta):
 
 func _on_modo_territorio_button_pressed():
 	$ButtonPressed.play()
+	await $ButtonPressed.finished
 	get_tree().change_scene_to_file("res://Scenes/ModoTerritorio.tscn")
 
 
@@ -26,6 +27,7 @@ func _on_modo_territorio_button_mouse_entered():
 
 func _on_modo_nombres_button_pressed():
 	$ButtonPressed.play()
+	await $ButtonPressed.finished
 	get_tree().change_scene_to_file("res://Scenes/ModoNombres.tscn")
 
 
