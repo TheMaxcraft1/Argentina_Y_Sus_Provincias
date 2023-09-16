@@ -42,7 +42,7 @@ func _ready():
 	spawn_province()
 	$HUD/GameFinish.set_visible(false)
 	$Opacity.set_visible(false)
-	
+
 func _process(delta):
 	#show_fps()
 	province_matching_territory()
@@ -79,6 +79,9 @@ func check_province_name(province, province_name):
 	return province.get_name() == province_name
 		
 func province_matching_territory():
+		
+	if current_province.position.x > 472: #Si la provincia no esta sobre el pais
+		return
 	#Esto va a quedar muy largo, capaz se puede formatear de alguna manera...
 	if current_province != null and current_province.get_is_selected() == false:
 		if on_province:
@@ -296,8 +299,6 @@ func _on_tierra_del_fuego_area_entered(area):
 func _on_tierra_del_fuego_area_exited(area):
 	on_province_area_exited(area, "TierraDelFuegoProvincia")
 
-func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
 	
 func updateMultiplierLabel():
 	var mLabel = $HUD/MultiplierLabel 
