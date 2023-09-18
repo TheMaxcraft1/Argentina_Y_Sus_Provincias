@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx1uinpkttdi8"]
+[gd_scene load_steps=21 format=3 uid="uid://cx1uinpkttdi8"]
 
 [ext_resource type="FontFile" uid="uid://cbr37a7fhvbow" path="res://Fonts/porter-sans-inline-block.otf" id="1_jt2c1"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_o8k0b"]
@@ -6,6 +6,13 @@
 [ext_resource type="FontFile" uid="uid://bwduwiy8ft7lp" path="res://Fonts/Monocraft.otf" id="3_i01c2"]
 [ext_resource type="AudioStream" uid="uid://bf6bwdfjlaxq5" path="res://Sounds/ButtonHovered.wav" id="4_464xt"]
 [ext_resource type="AudioStream" uid="uid://vr360eb7lffo" path="res://Sounds/ButtonPressed.wav" id="5_aeu13"]
+[ext_resource type="PackedScene" uid="uid://dqkuw4ww0tuh" path="res://Scenes/Volume_slider.tscn" id="7_mgmnm"]
+[ext_resource type="Texture2D" uid="uid://dl3y316jvfi4g" path="res://Textures/SFXIconNormal.png" id="8_ebdnj"]
+[ext_resource type="Texture2D" uid="uid://doscno2vyneqm" path="res://Textures/SFXIconPressed.png" id="9_iogwy"]
+[ext_resource type="Texture2D" uid="uid://bg6wgym01rbcf" path="res://Textures/SFXIconHover.png" id="10_lgm46"]
+[ext_resource type="Texture2D" uid="uid://bn73mjkghdfj3" path="res://Textures/MusicIconNormal.png" id="11_8jw5w"]
+[ext_resource type="Texture2D" uid="uid://6yurbetla7nk" path="res://Textures/MusicIconPressed.png" id="12_6djma"]
+[ext_resource type="Texture2D" uid="uid://ddnt4ip80hd6x" path="res://Textures/MusicIconHover.png" id="13_g51qn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hjsd"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -49,6 +56,9 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlkc6"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_o8k0b")
 
@@ -87,8 +97,8 @@ size_flags_vertical = 3
 [node name="ModoTerritorioMarginContainer" type="MarginContainer" parent="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
 
 [node name="ModoTerritorioButton" type="Button" parent="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer/ModoTerritorioMarginContainer"]
 layout_mode = 2
@@ -108,8 +118,8 @@ size_flags_vertical = 3
 [node name="ModoNombresMarginContainer" type="MarginContainer" parent="MainMarginContainer/MainVBoxContainer/ModoNombresVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
 
 [node name="ModoNombresButton" type="Button" parent="MainMarginContainer/MainVBoxContainer/ModoNombresVBoxContainer/ModoNombresMarginContainer"]
 layout_mode = 2
@@ -129,8 +139,8 @@ size_flags_vertical = 3
 [node name="CreditosMarginContainer" type="MarginContainer" parent="MainMarginContainer/MainVBoxContainer/CreditosVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
 
 [node name="CreditosButton" type="Button" parent="MainMarginContainer/MainVBoxContainer/CreditosVBoxContainer/CreditosMarginContainer"]
 layout_mode = 2
@@ -311,9 +321,63 @@ text = "ATRÁS"
 
 [node name="ButtonHovered" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_464xt")
+bus = &"SFX"
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_aeu13")
+bus = &"SFX"
+
+[node name="OptionsContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 720.0
+offset_top = 784.0
+offset_right = 792.0
+offset_bottom = 976.0
+
+[node name="SFXSlider" parent="OptionsContainer" instance=ExtResource("7_mgmnm")]
+visible = false
+layout_mode = 2
+offset_right = 32.0
+offset_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vlkc6")
+bus_name = "SFX"
+
+[node name="MusicSlider" parent="OptionsContainer" instance=ExtResource("7_mgmnm")]
+visible = false
+layout_mode = 2
+offset_left = 40.0
+offset_right = 74.0
+offset_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vlkc6")
+bus_name = "Music"
+
+[node name="MusicButton" type="TextureButton" parent="OptionsContainer"]
+layout_mode = 2
+offset_left = 40.0
+offset_top = 160.0
+offset_right = 72.0
+offset_bottom = 192.0
+size_flags_vertical = 8
+toggle_mode = true
+texture_normal = ExtResource("11_8jw5w")
+texture_pressed = ExtResource("12_6djma")
+texture_hover = ExtResource("13_g51qn")
+
+[node name="SFXButton" type="TextureButton" parent="OptionsContainer"]
+layout_mode = 2
+offset_top = 160.0
+offset_right = 32.0
+offset_bottom = 192.0
+size_flags_vertical = 8
+toggle_mode = true
+texture_normal = ExtResource("8_ebdnj")
+texture_pressed = ExtResource("9_iogwy")
+texture_hover = ExtResource("10_lgm46")
 
 [connection signal="mouse_entered" from="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer/ModoTerritorioMarginContainer/ModoTerritorioButton" to="." method="_on_modo_territorio_button_mouse_entered"]
 [connection signal="pressed" from="MainMarginContainer/MainVBoxContainer/ModoTerritorioVBoxContainer/ModoTerritorioMarginContainer/ModoTerritorioButton" to="." method="_on_modo_territorio_button_pressed"]
@@ -323,3 +387,7 @@ stream = ExtResource("5_aeu13")
 [connection signal="pressed" from="MainMarginContainer/MainVBoxContainer/CreditosVBoxContainer/CreditosMarginContainer/CreditosButton" to="." method="_on_creditos_button_pressed"]
 [connection signal="mouse_entered" from="Creditos/MarginContainer3/AtrasCreditosButton" to="." method="_on_atras_creditos_button_mouse_entered"]
 [connection signal="pressed" from="Creditos/MarginContainer3/AtrasCreditosButton" to="." method="_on_atras_creditos_button_pressed"]
+[connection signal="mouse_entered" from="OptionsContainer/MusicButton" to="." method="_on_music_button_mouse_entered"]
+[connection signal="toggled" from="OptionsContainer/MusicButton" to="." method="_on_music_button_toggled"]
+[connection signal="mouse_entered" from="OptionsContainer/SFXButton" to="." method="_on_sfx_button_mouse_entered"]
+[connection signal="toggled" from="OptionsContainer/SFXButton" to="." method="_on_sfx_button_toggled"]

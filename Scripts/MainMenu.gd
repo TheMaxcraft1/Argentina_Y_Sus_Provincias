@@ -55,3 +55,25 @@ func _on_atras_creditos_button_pressed():
 
 func _on_atras_creditos_button_mouse_entered():
 	$ButtonHovered.play()
+
+func _on_sfx_button_toggled(button_pressed):
+	if button_pressed:
+		$OptionsContainer/SFXSlider.set_visible(true)
+	else:
+		$OptionsContainer/SFXSlider.set_visible(false)
+	$ButtonPressed.play()
+
+func _on_sfx_button_mouse_entered():
+	$ButtonHovered.play()
+		
+
+func _on_music_button_toggled(button_pressed):
+	if button_pressed:
+		$OptionsContainer/MusicSlider.set_visible(true)
+	else:
+		$OptionsContainer/MusicSlider.set_visible(false)
+	$ButtonPressed.play()
+
+
+func _on_music_button_mouse_entered():
+	$ButtonHovered.play()
