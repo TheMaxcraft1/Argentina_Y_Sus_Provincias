@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://qoivgopwgq8"
+uid="uid://nof1jlwvjgbr"
 path="res://.godot/imported/Argentina_8bits.ogg-60dec3d313a019c64fdb959aad82a98b.oggvorbisstr"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Argentina_8bits.ogg-60dec3d313a019c64fdb959aa
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
 bpm=0
 beat_count=0

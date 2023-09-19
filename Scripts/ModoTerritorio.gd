@@ -35,6 +35,7 @@ var province_dict = {
 var province_list = province_dict.keys()
 
 func _ready():
+	get_tree().paused = false
 	is_game_finished = false
 	score = 0
 	multiplier = 1
@@ -80,7 +81,7 @@ func check_province_name(province, province_name):
 		
 func province_matching_territory():
 		
-	if current_province.position.x > 472: #Si la provincia no esta sobre el pais
+	if current_province != null and current_province.position.x > 472: #Si la provincia no esta sobre el pais
 		return
 	#Esto va a quedar muy largo, capaz se puede formatear de alguna manera...
 	if current_province != null and current_province.get_is_selected() == false:
@@ -340,9 +341,9 @@ func _on_home_button_mouse_entered():
 
 func _on_sfx_button_toggled(button_pressed):
 	if button_pressed:
-		$OptionsContainer/SFXSlider.set_visible(true)
+		$HUD/OptionsContainer/SFXSlider.set_visible(true)
 	else:
-		$OptionsContainer/SFXSlider.set_visible(false)
+		$HUD/OptionsContainer/SFXSlider.set_visible(false)
 	$ButtonPressed.play()
 
 func _on_sfx_button_mouse_entered():
@@ -351,11 +352,33 @@ func _on_sfx_button_mouse_entered():
 
 func _on_music_button_toggled(button_pressed):
 	if button_pressed:
-		$OptionsContainer/MusicSlider.set_visible(true)
+		$HUD/OptionsContainer/MusicSlider.set_visible(true)
 	else:
-		$OptionsContainer/MusicSlider.set_visible(false)
+		$HUD/OptionsContainer/MusicSlider.set_visible(false)
 	$ButtonPressed.play()
 
 
 func _on_music_button_mouse_entered():
+	$ButtonHovered.play()
+
+
+func _on_resume_button_pressed():
+	$ButtonPressed.play()
+	$HUD/PauseMenu.set_visible(false)
+	$Opacity.set_visible(false)
+	get_tree().paused = false
+
+
+func _on_resume_button_mouse_entered():
+	$ButtonHovered.play()
+
+
+func _on_pause_button_pressed():
+	$ButtonPressed.play()
+	$HUD/PauseMenu.set_visible(true)
+	$Opacity.set_visible(true)
+	get_tree().paused = true
+
+
+func _on_pause_button_mouse_entered():
 	$ButtonHovered.play()
