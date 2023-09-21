@@ -16,14 +16,20 @@ func _ready():
 	$HUD/GameFinish.set_visible(false)
 	$Opacity.set_visible(false)
 
-func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit):
+func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit, provinciaLabel: Label):
+	var success_color = Color.GREEN
+	var miss_color = Color.RED
 	if txt.to_lower() == provinciaNombre:
 		updateScore(100 * multiplier)
 		multiplier += 1
 		comboUpSFX()
+		provinciaLabel.add_theme_color_override("font_color", success_color)
 	else:
 		multiplier = 1
 		$ComboMiss.play()
+		provinciaLabel.add_theme_color_override("font_color", miss_color)
+	provinciaLabel.set_visible(true)
+	provinciaLineEdit.set_visible(false)
 	updateMultiplier()
 	provinciaLineEdit.set_editable(false)
 	provinciaLineEdit.set_focus_mode(Control.FOCUS_NONE)
@@ -50,85 +56,89 @@ func comboUpSFX():
 	pitch += 0.05
 
 func _on_buenos_aires_line_edit_text_submitted(txt):		
-	provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit)
+	provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit, $BuenosAiresLabel)
+#	var success_color = Color.GREEN
+#	var miss_color = Color.RED
 #	if txt.to_lower() == "buenos aires":
 #		updateScore(100 * multiplier)
 #		multiplier += 1
 #		comboUpSFX()
+#		$BuenosAiresLabel.add_theme_color_override("font_color", success_color)
 #	else:
 #		multiplier = 1
 #		$ComboMiss.play()
-#		$BuenosAiresLineEdit.set_visible(false)
-#		$BuenosAiresLabel.set_visible(true)
+#		$BuenosAiresLabel.add_theme_color_override("font_color", miss_color)
+#	$BuenosAiresLabel.set_visible(true)
+#	$BuenosAiresLineEdit.set_visible(false)
 #	updateMultiplier()
 #	$BuenosAiresLineEdit.set_editable(false)
 #	$BuenosAiresLineEdit.set_focus_mode(Control.FOCUS_NONE)
 
 func _on_entre_rios_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "entre ríos", $EntreRiosLineEdit)
+	provinceSignalProcessing(txt, "entre ríos", $EntreRiosLineEdit, $EntreRiosLabel)
 
 func _on_corrientes_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "corrientes", $CorrientesLineEdit)
+	provinceSignalProcessing(txt, "corrientes", $CorrientesLineEdit, $CorrientesLabel)
 
 func _on_misiones_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "misiones", $MisionesLineEdit)
+	provinceSignalProcessing(txt, "misiones", $MisionesLineEdit, $MisionesLabel)
 
 func _on_jujuy_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "jujuy", $JujuyLineEdit)
+	provinceSignalProcessing(txt, "jujuy", $JujuyLineEdit, $JujuyLabel)
 
 func _on_salta_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "salta", $SaltaLineEdit)
+	provinceSignalProcessing(txt, "salta", $SaltaLineEdit, $SaltaLabel)
 
 func _on_catamarca_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "catamarca", $CatamarcaLineEdit)
+	provinceSignalProcessing(txt, "catamarca", $CatamarcaLineEdit, $CatamarcaLabel)
 
 func _on_la_rioja_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "la rioja", $LaRiojaLineEdit)
+	provinceSignalProcessing(txt, "la rioja", $LaRiojaLineEdit, $LaRiojaLabel)
 
 func _on_san_juan_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "san juan", $SanJuanLineEdit)
+	provinceSignalProcessing(txt, "san juan", $SanJuanLineEdit, $SanJuanLabel)
 
 func _on_mendoza_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "mendoza", $MendozaLineEdit)
+	provinceSignalProcessing(txt, "mendoza", $MendozaLineEdit, $MendozaLabel)
 
 func _on_neuquen_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "neuquén", $NeuquenLineEdit)
+	provinceSignalProcessing(txt, "neuquén", $NeuquenLineEdit, $NeuquenLabel)
 
 func _on_rio_negro_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "río negro", $RioNegroLineEdit)
+	provinceSignalProcessing(txt, "río negro", $RioNegroLineEdit, $RioNegroLabel)
 
 func _on_chubut_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "chubut", $ChubutLineEdit)
+	provinceSignalProcessing(txt, "chubut", $ChubutLineEdit, $ChubutLabel)
 
 func _on_santa_cruz_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "santa cruz", $SantaCruzLineEdit)
+	provinceSignalProcessing(txt, "santa cruz", $SantaCruzLineEdit, $SantaCruzLabel)
 
 func _on_tierra_del_fuego_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "tierra del fuego", $TierraDelFuegoLineEdit)
+	provinceSignalProcessing(txt, "tierra del fuego", $TierraDelFuegoLineEdit, $TierraDelFuegoLabel)
 
 func _on_formosa_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "formosa", $FormosaLineEdit)
+	provinceSignalProcessing(txt, "formosa", $FormosaLineEdit, $FormosaLabel)
 
 func _on_chaco_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "chaco", $ChacoLineEdit)
+	provinceSignalProcessing(txt, "chaco", $ChacoLineEdit, $ChacoLabel)
 
 func _on_santiago_del_estero_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "santiago del estero", $SantiagoDelEsteroLineEdit)
+	provinceSignalProcessing(txt, "santiago del estero", $SantiagoDelEsteroLineEdit, $SantiagoDelEsteroLabel)
 
 func _on_tucuman_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "tucumán", $TucumanLineEdit)
+	provinceSignalProcessing(txt, "tucumán", $TucumanLineEdit, $TucumanLabel)
 
 func _on_santa_fe_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "santa fe", $SantaFeLineEdit)
+	provinceSignalProcessing(txt, "santa fe", $SantaFeLineEdit, $SantaFeLabel)
 
 func _on_cordoba_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "córdoba", $CordobaLineEdit)
+	provinceSignalProcessing(txt, "córdoba", $CordobaLineEdit, $CordobaLabel)
 
 func _on_la_pampa_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "la pampa", $LaPampaLineEdit)
+	provinceSignalProcessing(txt, "la pampa", $LaPampaLineEdit, $LaPampaLabel)
 
 func _on_san_luis_line_edit_text_submitted(txt):
-	provinceSignalProcessing(txt, "san luis", $SanLuisLineEdit)
+	provinceSignalProcessing(txt, "san luis", $SanLuisLineEdit, $SanLuisLabel)
 
 func updateMultiplier():
 	var mLabel = $HUD/MultiplierLabel 
