@@ -4,6 +4,9 @@ var score = 0
 var multiplier = 1
 var pitch = 1
 var province_counter
+var is_winner := true
+var is_timed_mode : bool
+var is_timer_finished = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +17,7 @@ func _ready():
 	$HUD/MultiplierLabel.add_theme_font_size_override("font_size", 50)
 	$HUD/MultiplierLabel.add_theme_color_override("font_color", Color(255,255,255))
 	$HUD/GameFinish.set_visible(false)
-	$Opacity.set_visible(false)
+	$Opacity.set_visible(true)
 
 func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit, provinciaLabel: Label):
 	var success_color = Color.GREEN
@@ -28,6 +31,7 @@ func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit
 		multiplier = 1
 		$ComboMiss.play()
 		provinciaLabel.add_theme_color_override("font_color", miss_color)
+		is_winner = false
 	provinciaLabel.set_visible(true)
 	provinciaLineEdit.set_visible(false)
 	updateMultiplier()
@@ -36,15 +40,22 @@ func provinceSignalProcessing(txt, provinciaNombre, provinciaLineEdit : LineEdit
 	province_counter += 1
 
 func game_finish():
-	if province_counter == 23:
+	if province_counter == 23 or is_timer_finished:
 		await get_tree().create_timer(1).timeout
 		$HUD/GameFinish.set_visible(true)
 		$Opacity.set_visible(true)
+		if is_timed_mode:
+			$GameTimer.set_paused(true)
+		if is_winner:
+			$HUD/GameFinish/GanasteLabel.set_visible(true)
+		else:
+			$HUD/GameFinish/PerdisteLabel.set_visible(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#$HUD/FPSLabel.set_text(str(Engine.get_frames_per_second()))
 	game_finish()
+	timer_label_update()
 
 func comboUpSFX():
 	if multiplier == 2:
@@ -55,24 +66,12 @@ func comboUpSFX():
 	$ComboUp.play()
 	pitch += 0.05
 
+func timer_label_update():
+	if is_timed_mode:
+		$HUD/TimerLabel.text = "%d:%02d" % [floor($GameTimer.time_left / 60), int($GameTimer.time_left) % 60]
+
 func _on_buenos_aires_line_edit_text_submitted(txt):		
 	provinceSignalProcessing(txt, "buenos aires", $BuenosAiresLineEdit, $BuenosAiresLabel)
-#	var success_color = Color.GREEN
-#	var miss_color = Color.RED
-#	if txt.to_lower() == "buenos aires":
-#		updateScore(100 * multiplier)
-#		multiplier += 1
-#		comboUpSFX()
-#		$BuenosAiresLabel.add_theme_color_override("font_color", success_color)
-#	else:
-#		multiplier = 1
-#		$ComboMiss.play()
-#		$BuenosAiresLabel.add_theme_color_override("font_color", miss_color)
-#	$BuenosAiresLabel.set_visible(true)
-#	$BuenosAiresLineEdit.set_visible(false)
-#	updateMultiplier()
-#	$BuenosAiresLineEdit.set_editable(false)
-#	$BuenosAiresLineEdit.set_focus_mode(Control.FOCUS_NONE)
 
 func _on_entre_rios_line_edit_text_submitted(txt):
 	provinceSignalProcessing(txt, "entre ríos", $EntreRiosLineEdit, $EntreRiosLabel)
@@ -224,3 +223,29 @@ func _on_resume_button_pressed():
 
 func _on_resume_button_mouse_entered():
 	$ButtonHovered.play()
+
+
+func _on_modo_sin_tiempo_button_pressed():
+	is_timed_mode = false
+	$ButtonPressed.play()
+	$HUD/GameStart.set_visible(false)
+	$Opacity.set_visible(false)
+
+
+func _on_modo_sin_tiempo_button_mouse_entered():
+	$ButtonHovered.play()
+
+func _on_modo_temporizado_button_pressed():
+	is_timed_mode = true
+	$ButtonPressed.play()
+	$HUD/GameStart.set_visible(false)
+	$HUD/TimerLabel.set_visible(true)
+	$GameTimer.start()
+	$Opacity.set_visible(false)
+
+func _on_modo_temporizado_button_mouse_entered():
+	$ButtonHovered.play()
+
+func _on_game_timer_timeout():
+	is_winner = false
+	is_timer_finished = true

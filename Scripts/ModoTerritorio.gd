@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var province_scene: PackedScene
+var is_timed_mode : bool
+var is_winner := true
 var is_game_finished
 var score
 var multiplier
@@ -42,12 +44,18 @@ func _ready():
 	randomize()
 	spawn_province()
 	$HUD/GameFinish.set_visible(false)
-	$Opacity.set_visible(false)
+	$Opacity.set_visible(true)
+	
 
 func _process(delta):
 	#show_fps()
 	province_matching_territory()
 	game_finish()
+	timer_label_update()
+	
+func timer_label_update():
+	if is_timed_mode:
+		$HUD/TimerLabel.text = "%d:%02d" % [floor($GameTimer.time_left / 60), int($GameTimer.time_left) % 60]
 	
 func show_fps():
 	$HUD/FPSLabel.add_theme_color_override("font_color", Color.AQUAMARINE)
@@ -75,6 +83,12 @@ func game_finish():
 	if is_game_finished:
 		$HUD/GameFinish.set_visible(true)
 		$Opacity.set_visible(true)
+		if is_timed_mode:
+			$GameTimer.set_paused(true)
+		if is_winner:
+			$HUD/GameFinish/GanasteLabel.set_visible(true)
+		else:
+			$HUD/GameFinish/PerdisteLabel.set_visible(true)
 
 func check_province_name(province, province_name):
 	return province.get_name() == province_name
@@ -145,6 +159,7 @@ func province_matching_territory():
 			print("NO ES EL TERRITORIO DE LA PROVINCIA")
 			multiplier = 1
 			$ComboMiss.play()
+			is_winner = false
 		
 		updateMultiplierLabel()
 		current_province.queue_free()
@@ -382,3 +397,32 @@ func _on_pause_button_pressed():
 
 func _on_pause_button_mouse_entered():
 	$ButtonHovered.play()
+
+
+func _on_modo_temporizado_button_pressed():
+	is_timed_mode = true
+	$ButtonPressed.play()
+	$HUD/GameStart.set_visible(false)
+	$HUD/TimerLabel.set_visible(true)
+	$GameTimer.start()
+	$Opacity.set_visible(false)
+	
+func _on_modo_sin_tiempo_button_pressed():
+	is_timed_mode = false
+	$ButtonPressed.play()
+	$HUD/GameStart.set_visible(false)
+	$Opacity.set_visible(false)
+
+
+func _on_modo_sin_tiempo_button_mouse_entered():
+	$ButtonHovered.play()
+	
+
+
+func _on_modo_temporizado_button_mouse_entered():
+	$ButtonHovered.play()
+
+
+func _on_game_timer_timeout():
+	is_game_finished = true
+	is_winner = false
